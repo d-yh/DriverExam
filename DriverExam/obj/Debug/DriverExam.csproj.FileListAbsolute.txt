@@ -1,0 +1,9 @@
+D:\Code_diaoyuhang\DriverExam\DriverExam\bin\Debug\DriverExam.exe.config
+D:\Code_diaoyuhang\DriverExam\DriverExam\bin\Debug\DriverExam.exe
+D:\Code_diaoyuhang\DriverExam\DriverExam\bin\Debug\DriverExam.pdb
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.Main.resources
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.Properties.Resources.resources
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.csproj.GenerateResource.Cache
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.exe
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.pdb
+D:\Code_diaoyuhang\DriverExam\DriverExam\obj\Debug\DriverExam.csprojResolveAssemblyReference.cache
