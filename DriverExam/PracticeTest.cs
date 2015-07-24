@@ -236,6 +236,10 @@ namespace DriverExam
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (index >= 100)
+            {
+                index = 99;
+            }
             index--;
             setQuestion();
         }
