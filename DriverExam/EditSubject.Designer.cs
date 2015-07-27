@@ -50,6 +50,8 @@
             this.txtpicName = new CCWin.SkinControl.SkinWaterTextBox();
             this.btnSave = new CCWin.SkinControl.SkinButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.skinLabel11 = new CCWin.SkinControl.SkinLabel();
+            this.txtDetail = new CCWin.SkinControl.SkinWaterTextBox();
             this.SuspendLayout();
             // 
             // skinLabel1
@@ -235,7 +237,7 @@
             this.txtQuestion.Padding = new System.Windows.Forms.Padding(5);
             this.txtQuestion.ReadOnly = false;
             this.txtQuestion.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtQuestion.Size = new System.Drawing.Size(202, 239);
+            this.txtQuestion.Size = new System.Drawing.Size(202, 120);
             // 
             // 
             // 
@@ -245,7 +247,7 @@
             this.txtQuestion.SkinTxt.Location = new System.Drawing.Point(5, 5);
             this.txtQuestion.SkinTxt.Multiline = true;
             this.txtQuestion.SkinTxt.Name = "BaseText";
-            this.txtQuestion.SkinTxt.Size = new System.Drawing.Size(192, 229);
+            this.txtQuestion.SkinTxt.Size = new System.Drawing.Size(192, 110);
             this.txtQuestion.SkinTxt.TabIndex = 0;
             this.txtQuestion.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtQuestion.SkinTxt.WaterText = "";
@@ -314,7 +316,7 @@
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnSave.DownBack = null;
-            this.btnSave.Location = new System.Drawing.Point(566, 325);
+            this.btnSave.Location = new System.Drawing.Point(566, 403);
             this.btnSave.MouseBack = null;
             this.btnSave.Name = "btnSave";
             this.btnSave.NormlBack = null;
@@ -334,11 +336,35 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "注意事项：请将同名的图片以jpg格式格式放入安装目录下pic文件夹";
             // 
+            // skinLabel11
+            // 
+            this.skinLabel11.AutoSize = true;
+            this.skinLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel11.BorderColor = System.Drawing.Color.White;
+            this.skinLabel11.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel11.Location = new System.Drawing.Point(8, 272);
+            this.skinLabel11.Name = "skinLabel11";
+            this.skinLabel11.Size = new System.Drawing.Size(68, 17);
+            this.skinLabel11.TabIndex = 23;
+            this.skinLabel11.Text = "题目详解：";
+            // 
+            // txtDetail
+            // 
+            this.txtDetail.Location = new System.Drawing.Point(78, 272);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.Size = new System.Drawing.Size(579, 125);
+            this.txtDetail.TabIndex = 24;
+            this.txtDetail.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtDetail.WaterText = "";
+            // 
             // EditSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 365);
+            this.ClientSize = new System.Drawing.Size(681, 443);
+            this.Controls.Add(this.txtDetail);
+            this.Controls.Add(this.skinLabel11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtpicName);
@@ -362,9 +388,7 @@
             this.Controls.Add(this.skinLabel2);
             this.Controls.Add(this.skinLabel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(681, 365);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(681, 365);
             this.Name = "EditSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "题库编辑";
@@ -398,5 +422,7 @@
         private CCWin.SkinControl.SkinWaterTextBox txtpicName;
         private CCWin.SkinControl.SkinButton btnSave;
         private System.Windows.Forms.Label label1;
+        private CCWin.SkinControl.SkinLabel skinLabel11;
+        private CCWin.SkinControl.SkinWaterTextBox txtDetail;
     }
 }

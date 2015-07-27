@@ -32,12 +32,12 @@ namespace DriverExam
             string sqlString = "";
             if (id != "")
             {
-                sqlString = "update ExamSubject set topic = '" + cbTopic.Text + "',type='" + cbSubjectType.Text + "',question = '" + txtQuestion.Text + "',picture_name='" + txtpicName.Text + "',option_a ='" + txtA.Text + "',option_b = '" + txtB.Text + "',option_c='" + txtC.Text + "',option_d='" + txtD.Text + "',answer='" + txtAnswer.Text + "',section = '" + cbSectionType.SelectedValue.ToString() + "' where id = '"+id+"'";
+                sqlString = "update ExamSubject set topic = '" + cbTopic.Text + "',type='" + cbSubjectType.Text + "',question = '" + txtQuestion.Text + "',picture_name='" + txtpicName.Text + "',option_a ='" + txtA.Text + "',option_b = '" + txtB.Text + "',option_c='" + txtC.Text + "',option_d='" + txtD.Text + "',answer='" + txtAnswer.Text + "',section = '" + cbSectionType.SelectedValue.ToString() + "',error_detail = '"+txtDetail.Text.ToString()+"' where id = '" + id + "'";
                 new Tool().ExecNonSQLQuery(sqlString);
             }
             else 
-            {               
-                sqlString = "insert into ExamSubject (topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section)values('" + cbTopic.Text + "','" + cbSubjectType.Text + "','" + txtQuestion.Text + "','" + txtpicName.Text + "','" + txtA.Text + "','" + txtB.Text + "','" + txtC.Text + "','" + txtD.Text + "','" + txtAnswer.Text + "','" + cbSectionType.SelectedValue.ToString() + "')";
+            {
+                sqlString = "insert into ExamSubject (topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section,error_detail)values('" + cbTopic.Text + "','" + cbSubjectType.Text + "','" + txtQuestion.Text + "','" + txtpicName.Text + "','" + txtA.Text + "','" + txtB.Text + "','" + txtC.Text + "','" + txtD.Text + "','" + txtAnswer.Text + "','" + cbSectionType.SelectedValue.ToString() + "','"+txtDetail.Text.ToString()+"')";
                 new Tool().ExecNonSQLQuery(sqlString);
             }
 
@@ -60,7 +60,7 @@ namespace DriverExam
             cbTopic.SelectedIndex = 0;
             if (id != "")
             {
-                sqlString = sqlString = "select a.id,b.section as 章节类别,topic as 题目主题,type as 题目类型,question as 题目问题,picture_name as 图片名称,option_a as 选项A,option_b as 选项B,option_c as 选项C,option_d as 选项D,answer as 答案 from ExamSubject a left join ExamSection b on a.section = b.id where a.id='"+id+"'";
+                sqlString = sqlString = "select a.id,b.section as 章节类别,topic as 题目主题,type as 题目类型,question as 题目问题,picture_name as 图片名称,option_a as 选项A,option_b as 选项B,option_c as 选项C,option_d as 选项D,answer as 答案,error_detail as 题目详解 from ExamSubject a left join ExamSection b on a.section = b.id where a.id='" + id + "'";
                 DataTable dt = new Tool().ExecuteSqlQuery(sqlString);
                 txtA.Text = dt.Rows[0]["选项A"].ToString();
                 txtB.Text = dt.Rows[0]["选项B"].ToString();
@@ -72,6 +72,7 @@ namespace DriverExam
                 txtAnswer.Text = dt.Rows[0]["答案"].ToString();
                 txtQuestion.Text = dt.Rows[0]["题目问题"].ToString();
                 txtpicName.Text = dt.Rows[0]["图片名称"].ToString();
+                txtDetail.Text = dt.Rows[0]["题目详解"].ToString();
             }
         }
 

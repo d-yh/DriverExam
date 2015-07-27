@@ -219,10 +219,10 @@
             this.topicNumber.AutoSize = true;
             this.topicNumber.BackColor = System.Drawing.Color.Transparent;
             this.topicNumber.BorderColor = System.Drawing.Color.White;
-            this.topicNumber.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.topicNumber.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.topicNumber.Location = new System.Drawing.Point(4, 5);
             this.topicNumber.Name = "topicNumber";
-            this.topicNumber.Size = new System.Drawing.Size(89, 21);
+            this.topicNumber.Size = new System.Drawing.Size(96, 22);
             this.topicNumber.TabIndex = 2;
             this.topicNumber.Text = "skinLabel5";
             this.topicNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -265,7 +265,7 @@
             // lblquestion
             // 
             this.lblquestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblquestion.Font = new System.Drawing.Font("宋体", 14F);
+            this.lblquestion.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblquestion.Location = new System.Drawing.Point(0, 0);
             this.lblquestion.Name = "lblquestion";
             this.lblquestion.Size = new System.Drawing.Size(616, 115);
@@ -332,7 +332,7 @@
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 468);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1097, 252);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1097, 239);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // timerExam
@@ -358,7 +358,7 @@
             this.skinPanel4.MouseBack = null;
             this.skinPanel4.Name = "skinPanel4";
             this.skinPanel4.NormlBack = null;
-            this.skinPanel4.Size = new System.Drawing.Size(1075, 204);
+            this.skinPanel4.Size = new System.Drawing.Size(1096, 204);
             this.skinPanel4.TabIndex = 8;
             // 
             // radioD
@@ -548,7 +548,7 @@
             this.btnCollect.NormlBack = null;
             this.btnCollect.Size = new System.Drawing.Size(86, 31);
             this.btnCollect.TabIndex = 10;
-            this.btnCollect.Text = "收藏";
+            this.btnCollect.Text = "收藏此题";
             this.btnCollect.UseVisualStyleBackColor = false;
             this.btnCollect.Click += new System.EventHandler(this.btnCollect_Click);
             // 
@@ -556,7 +556,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 727);
+            this.ClientSize = new System.Drawing.Size(1112, 712);
             this.Controls.Add(this.btnCollect);
             this.Controls.Add(this.skinPanel4);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -569,8 +569,7 @@
             this.Controls.Add(this.btnCommit);
             this.MaximizeBox = false;
             this.Name = "PracticeTest";
-            this.Text = "模拟考试";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "四川省机动车驾驶员从业考试操作系统-模拟考试";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PracticeTest_FormClosing);
             this.Load += new System.EventHandler(this.PracticeTest_Load);
             this.skinPanel1.ResumeLayout(false);

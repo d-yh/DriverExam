@@ -17,6 +17,7 @@ namespace DriverExam
         private string random = "";
         private string sqlString = "";
         private int index = 0;
+        private bool isError = true;
         public Practice(string name,string sqlString)
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace DriverExam
             }
             btnNext.Enabled = index<dt.Rows.Count;
             clearSelected();
+            clearColor();
             if (this.random != "")
             {
                 this.index = new Random().Next(0, dt.Rows.Count);
@@ -149,40 +151,45 @@ namespace DriverExam
         private void btnBack_Click(object sender, EventArgs e)
         {
             index--;
-            //LoadDefault();
             setLayout();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            //if (!this.checkBoxA.Checked && !this.checkBoxB.Checked && !this.checkBoxC.Checked && !this.checkBoxD.Checked && !this.radioA.Checked && !this.radioB.Checked && !this.radioC.Checked && !this.radioD.Checked)
-            //{
-            //    MessageBoxEx.Show("请选择至少一个答案");
-            //    return;
-            //}
-            if (!checkAnswer())
+            if (!checkAnswer()&&isError)//检查答案是否正确
             {
+                isError = false;
+                setAnswerStyle();
+                lblError.Text = "正确答案：" + dt.Rows[this.index]["answer"].ToString();
+                if (checkBoxIsShowTrue.Checked)//检查是否查看详解
+                {
+                    lblErrorDetail.Text = dt.Rows[this.index]["error_detail"].ToString();                    
+                }
                 if (sqlString == "select a.* from ExamSubject a left join ExamErrorSubject b on a.id= b.subject_id where b.user_id = '" + Login.USERID + "'")
                 {
-                   MessageBoxEx.Show("正确答案为：" + dt.Rows[this.index]["answer"].ToString());
-                   index++;
-                   LoadDefault();
-                   setLayout();
-                   return;
+                    return;
                 }
-                if (MessageBox.Show("正确答案为：" + dt.Rows[this.index]["answer"].ToString() + "。是否加入我的错题集？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    new Tool().ExecNonSQLQuery("insert into ExamErrorSubject (user_id,subject_id)values('" + Login.USERID + "','" + dt.Rows[this.index]["id"].ToString() + "')");
-                }
+                new Tool().ExecNonSQLQuery("insert into ExamErrorSubject (user_id,subject_id)values('" + Login.USERID + "','" + dt.Rows[this.index]["id"].ToString() + "')");              
+                return;
             }
-            index++;
-            //LoadDefault();
-            setLayout();
+            else if (checkAnswer())
+            {
+                index++;
+                setLayout();
+            }
+
+            if (!isError)
+            {
+                index++;
+                isError = true;
+                setLayout();
+            }            
         }
 
         private void clearSelected()
         {
             lblError.Text = "";
+            lblErrorDetail.Text = "";
             this.checkBoxA.Checked = false;
             this.checkBoxB.Checked = false;
             this.checkBoxC.Checked = false;
@@ -190,7 +197,22 @@ namespace DriverExam
             this.radioA.Checked = false;
             this.radioB.Checked = false;
             this.radioC.Checked = false;
-            this.radioD.Checked = false;
+            this.radioD.Checked = false;            
+        }
+
+        /// <summary>
+        /// 还原颜色为黑色
+        /// </summary>
+        private void clearColor()
+        {
+            checkBoxA.ForeColor = Color.Black;
+            checkBoxB.ForeColor = Color.Black;
+            checkBoxC.ForeColor = Color.Black;
+            checkBoxD.ForeColor = Color.Black;
+            radioA.ForeColor = Color.Black;
+            radioB.ForeColor = Color.Black;
+            radioC.ForeColor = Color.Black;
+            radioD.ForeColor = Color.Black;
         }
 
         private bool checkAnswer()
@@ -290,7 +312,10 @@ namespace DriverExam
 
         private void btnCollect_Click(object sender, EventArgs e)
         {
-
+            if (index == dt.Rows.Count)
+            {
+                index--;
+            }
             if (new Tool().ExecNonSQLQuery("insert into ExamCollect(user_id,subject_id)values('" + Login.USERID + "','" + dt.Rows[this.index]["id"].ToString() + "')")>0)
             {
                 MessageBoxEx.Show("添加成功");
@@ -298,6 +323,101 @@ namespace DriverExam
             else
             {
                 MessageBoxEx.Show("该题已经是您的收藏题目了，不允许重复添加");
+            }
+        }
+
+        private void setAnswerStyle()
+        {
+            //首先判断是何种题目
+            if (dt.Rows[this.index]["type"].ToString() == "判断题")
+            {
+                if (radioA.Checked)
+                {
+                    radioA.ForeColor = Color.Red;
+                    radioB.ForeColor = Color.Green;
+                }
+                else
+                {
+                    radioB.ForeColor = Color.Red;
+                    radioA.ForeColor = Color.Green;
+                }
+
+            }
+
+            if (dt.Rows[this.index]["type"].ToString().Trim() == "多项选择题" && dt.Rows[this.index]["answer"].ToString().Length > 1)
+            {
+                //先将正确答案设置为绿色
+                string answer = dt.Rows[this.index]["answer"].ToString().Trim();
+                if (answer.IndexOf("A") != -1)
+                {
+                    checkBoxA.ForeColor = Color.Green;
+                }
+
+                if (answer.IndexOf("B") != -1)
+                {
+                    checkBoxB.ForeColor = Color.Green;
+                }
+
+                if (answer.IndexOf("C") != -1)
+                {
+                    checkBoxC.ForeColor = Color.Green;
+                }
+
+                if (answer.IndexOf("D") != -1)
+                {
+                    checkBoxD.ForeColor = Color.Green;
+                }
+               
+                //在判断用户所选的答案
+                if (checkBoxA.Checked && answer.IndexOf("A") == -1)
+                {
+                    checkBoxA.ForeColor = Color.Red;
+                }
+
+                if (checkBoxB.Checked && answer.IndexOf("B") == -1)
+                {
+                    checkBoxB.ForeColor = Color.Red;
+                }
+
+                if (checkBoxC.Checked && answer.IndexOf("C") == -1)
+                {
+                    checkBoxC.ForeColor = Color.Red;
+                }
+
+                if (checkBoxD.Checked && answer.IndexOf("D") == -1)
+                {
+                    checkBoxD.ForeColor = Color.Red;
+                }
+            }
+
+            if (dt.Rows[this.index]["type"].ToString().Trim() == "单项选择题" && dt.Rows[this.index]["answer"].ToString().Length == 1)
+            {
+                string answer = dt.Rows[this.index]["answer"].ToString().Trim();
+                if (this.radioA.Checked)
+                {
+                    radioA.ForeColor = Color.Red;
+                }
+
+                if (this.radioB.Checked)
+                {
+                    radioB.ForeColor = Color.Red;
+                }
+
+                if (this.radioC.Checked)
+                {
+                    radioC.ForeColor = Color.Red;
+                }
+
+                if (this.radioD.Checked)
+                {
+                    radioD.ForeColor = Color.Red;
+                }
+
+                if (answer == "A") radioA.ForeColor = Color.Green;
+                if (answer == "B") radioB.ForeColor = Color.Green;
+                if (answer == "C") radioC.ForeColor = Color.Green;
+                if (answer == "D") radioD.ForeColor = Color.Green;
+                    
             }
         }
     }
