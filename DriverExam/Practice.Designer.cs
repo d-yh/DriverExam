@@ -469,6 +469,7 @@
             this.MaximumSize = new System.Drawing.Size(865, 569);
             this.MinimumSize = new System.Drawing.Size(865, 569);
             this.Name = "Practice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Practice";
             this.Load += new System.EventHandler(this.Practice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();

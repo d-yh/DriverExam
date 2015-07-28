@@ -50,27 +50,27 @@ namespace DriverExam
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-顺序练习", "select distinct * from ExamSubject").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-顺序练习", "select distinct * from ExamSubject").Show();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-随机练习", "select distinct * from ExamSubject", "随机练习").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-随机练习", "select distinct * from ExamSubject", "随机练习").Show();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-单项练习", "select distinct * from ExamSubject where type='单项选择题'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-单项练习", "select distinct * from ExamSubject where type='单项选择题'").Show();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-判断题", "select distinct * from ExamSubject where type='判断题'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-判断题", "select distinct * from ExamSubject where type='判断题'").Show();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-多项练习", "select distinct * from ExamSubject where type='多项选择题'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-多项练习", "select distinct * from ExamSubject where type='多项选择题'").Show();
         }
 
         private void toolStripButton10_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace DriverExam
                 MessageBoxEx.Show("您还没有错题");
                 return;
             }
-            new Practice("四川省机动车驾驶员从业考试操作系统-我的错题", "select distinct a.* from ExamSubject a left join ExamErrorSubject b on a.id= b.subject_id where b.user_id = '" + Login.USERID + "'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-我的错题", "select distinct a.* from ExamSubject a left join ExamErrorSubject b on a.id= b.subject_id where b.user_id = '" + Login.USERID + "'").Show();
         }
 
         private void toolStripButton11_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace DriverExam
                 MessageBoxEx.Show("您还没有收藏的题目");
                 return;
             }
-            new Practice("四川省机动车驾驶员从业考试操作系统-我的收藏", "select a.* from ExamSubject a left join ExamCollect b on a.id= b.subject_id where b.user_id = '" + Login.USERID + "'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-我的收藏", "select a.* from ExamSubject a left join ExamCollect b on a.id= b.subject_id where b.user_id = '" + Login.USERID + "'",false).Show();
         }
 
         private void excel导入题库ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,7 +110,53 @@ namespace DriverExam
 
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
-            new Practice("四川省机动车驾驶员从业考试操作系统-图片题练习", "select distinct * from ExamSubject where not picture_name  is null and picture_name <> ''").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-图片题练习", "select distinct * from ExamSubject where not picture_name  is null and picture_name <> ''").Show();
+        }
+
+        private void MenuItemBtnSingle_order_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-单项练习-顺序练习", "select distinct * from ExamSubject where type='单项选择题'").Show();
+        }
+
+        private void MenuItemBtnSingle_random_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-单项练习-随机练习", "select distinct * from ExamSubject where type='单项选择题'", "随机练习").Show();
+        }
+
+        private void MenuItemBtnSingle_difficult_Click(object sender, EventArgs e)
+        {
+
+            new Practice("四川省机动车教练员从业考试操作系统-单项练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '单项选择题' and b.section='难题强化'").Show();
+        }
+
+        private void MenuItemBtnJudge_order_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-判断练习-顺序练习", "select distinct * from ExamSubject where type='判断题'").Show();
+        }
+
+        private void MenuItemBtnJudge_random_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-判断练习-随机练习", "select distinct * from ExamSubject where type='判断题'", "随机练习").Show();
+        }
+
+        private void MenuItemBtnJudge_difficult_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-判断练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '判断题' and b.section='难题强化'").Show();
+        }
+
+        private void MenuItemBtnMore_order_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-多项练习-顺序练习", "select distinct * from ExamSubject where type='多项选择题'").Show();
+        }
+
+        private void MenuItemBtnMore_random_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-多项练习-随机练习", "select distinct * from ExamSubject where type='多项选择题'", "随机练习").Show();
+        }
+
+        private void MenuItemBtnMore_difficult_Click(object sender, EventArgs e)
+        {
+            new Practice("四川省机动车教练员从业考试操作系统-多项练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '多项选择题' and b.section='难题强化'").Show();
         }
     }
 }

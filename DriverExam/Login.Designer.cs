@@ -198,7 +198,8 @@
             this.MinimumSize = new System.Drawing.Size(350, 184);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "系统登陆";
+            this.Text = "四川省机动车教练员从业考试操作系统";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

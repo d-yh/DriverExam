@@ -41,16 +41,7 @@ namespace DriverExam
             this.Text = name;
         }
 
-        // public Practice(string type, string section, string topic, string name)
-        //{
-        //    InitializeComponent();
-        //    this.type = type;
-        //    this.section = section;
-        //    this.topic = topic;
-        //    this.sqlString = "select distinct * from ExamSubject where topic = '" + topic + "' or type='" + type + "' or section = '" + section + "'";
-        //    this.Text = name;
-        //}
-        private void setLayout()
+        private void setData()
         {
                       
             btnBack.Enabled = index > 0;
@@ -95,10 +86,10 @@ namespace DriverExam
                 this.radioC.Visible = false;
                 this.radioD.Visible = false;
 
-                this.checkBoxA.Text = "A."+dt.Rows[this.index]["option_a"].ToString();
-                this.checkBoxB.Text = "B."+dt.Rows[this.index]["option_b"].ToString();
-                this.checkBoxC.Text = "C."+dt.Rows[this.index]["option_c"].ToString();
-                this.checkBoxD.Text = "D."+dt.Rows[this.index]["option_d"].ToString();
+                this.checkBoxA.Text = "A." + dt.Rows[this.index]["option_a"].ToString().Replace("A","");
+                this.checkBoxB.Text = "B." + dt.Rows[this.index]["option_b"].ToString().Replace("B","");
+                this.checkBoxC.Text = "C." + dt.Rows[this.index]["option_c"].ToString().Replace("C","");
+                this.checkBoxD.Text = "D." + dt.Rows[this.index]["option_d"].ToString().Replace("D","");
             }
 
             if (dt.Rows[this.index]["type"].ToString() == "单项选择题")//必是单选
@@ -139,20 +130,21 @@ namespace DriverExam
         //取出数据
         private void LoadDefault()
         {
+            this.TopMost = true;
             dt = new Tool().ExecuteSqlQuery(this.sqlString);
         }
 
         private void Practice_Load(object sender, EventArgs e)
         {
             LoadDefault();
-            setLayout();
+            setData();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             isError = true;
             index--;
-            setLayout();
+            setData();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -176,14 +168,14 @@ namespace DriverExam
             else if (checkAnswer())
             {
                 index++;
-                setLayout();
+                setData();
             }
 
             if (!isError)
             {
                 index++;
                 isError = true;
-                setLayout();
+                setData();
             }            
         }
 

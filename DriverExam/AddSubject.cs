@@ -66,7 +66,7 @@ namespace DriverExam
 
         private void LoadDefault()
         {
-            string sqlString = "select a.id,b.section as 章节类别,topic as 题目主题,type as 题目类型,question as 题目问题,picture_name as 图片名称,option_a as 选项A,option_b as 选项B,option_c as 选项C,option_d as 选项D,answer as 答案 from ExamSubject a left join ExamSection b on a.section = b.id where a.question like '%" + txtSearch.Text + "%'";
+            string sqlString = "select a.id,b.section as 章节类别,topic as 题目主题,type as 题目类型,question as 题目问题,picture_name as 图片名称,option_a as 选项A,option_b as 选项B,option_c as 选项C,option_d as 选项D,answer as 答案,error_detail as 题目详解 from ExamSubject a left join ExamSection b on a.section = b.id where a.question like '%" + txtSearch.Text + "%'";
             dgRuleTable.DataSource = new Tool().ExecuteSqlQuery(sqlString);
             dgRuleTable.Columns["id"].Visible = false;
             if (dgRuleTable.RowCount < 1)
