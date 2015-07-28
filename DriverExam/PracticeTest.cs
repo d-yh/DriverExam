@@ -12,6 +12,7 @@ namespace DriverExam
 {
     public partial class PracticeTest : Skin_DevExpress
     {
+        private int totalTime = 0;
         private List<int> selectedNumber = new List<int>();
         private DateTime startTime = DateTime.Now;
         private int index = 0;
@@ -42,7 +43,7 @@ namespace DriverExam
         private void setQuestion()
         {
             IsShowSelect();
-            btnCommit.Enabled = index > 0;
+            //btnCommit.Enabled = index > 0;
             btnBack.Enabled = index > 0;
             if (index >= 100)
             {
@@ -117,7 +118,7 @@ namespace DriverExam
                 this.radioB.Text = "错误";
 
             }
-            lblquestion.Text = dt.Rows[listNumber[index]]["question"].ToString();
+            lblquestion.Text = "(" + dt.Rows[listNumber[index]]["type"].ToString()+")" + dt.Rows[listNumber[index]]["question"].ToString();
         }
         private void setRandomIndex()
         {
@@ -168,8 +169,31 @@ namespace DriverExam
 
         private void timerExam_Tick(object sender, EventArgs e)
         {
+            totalTime++;
+            if (totalTime == 3600)
+            {
+                btnBack.Enabled = false;
+                btnNext.Enabled = false;
+                btnCommit.Enabled = false;
+                timerExam.Enabled = false;
+                checkBoxIsNext.Enabled = false;
+                lblresult.Text = "" + getResult() + "分";
+                skinPanel4.Enabled = false;
+                isEnd = true;
+                if (index == 0)
+                {
+                    lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index]]["answer"].ToString();
+                    lblCustomer.Text = "您的答案：" + answers[index];
+                    MessageBoxEx.Show("您的答题时间已到,系统已经强制交卷");
+                    return;
+                }
+                lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index - 1]]["answer"].ToString();
+                lblCustomer.Text = "您的答案：" + answers[index - 1];
+                MessageBoxEx.Show("您的答题时间已到,系统已经强制交卷");
+            }
             DateTime endTime = DateTime.Now;
             lbltime.Text = endTime.Subtract(this.startTime).Hours.ToString() + "时" + endTime.Subtract(this.startTime).Minutes.ToString() + "分" + endTime.Subtract(this.startTime).Seconds.ToString() + "秒";
+           
         }
 
         private void PracticeTest_FormClosing(object sender, FormClosingEventArgs e)
@@ -286,6 +310,12 @@ namespace DriverExam
                 lblresult.Text = "" + getResult() + "分";
                 skinPanel4.Enabled = false;
                 isEnd = true;
+                if (index == 0)
+                {
+                    lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index]]["answer"].ToString();
+                    lblCustomer.Text = "您的答案：" + answers[index];
+                    return;
+                }
                 lblTrue.Text = "正确答案："+dt.Rows[listNumber[index-1]]["answer"].ToString();
                 lblCustomer.Text = "您的答案："+answers[index-1];
             }

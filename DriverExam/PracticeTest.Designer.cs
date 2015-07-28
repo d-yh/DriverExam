@@ -52,6 +52,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timerExam = new System.Windows.Forms.Timer(this.components);
             this.skinPanel4 = new CCWin.SkinControl.SkinPanel();
+            this.lblCurrentAnswer = new CCWin.SkinControl.SkinLabel();
             this.radioD = new CCWin.SkinControl.SkinRadioButton();
             this.radioC = new CCWin.SkinControl.SkinRadioButton();
             this.radioB = new CCWin.SkinControl.SkinRadioButton();
@@ -62,7 +63,6 @@
             this.checkBoxA = new CCWin.SkinControl.SkinCheckBox();
             this.checkBoxIsNext = new CCWin.SkinControl.SkinCheckBox();
             this.btnCollect = new CCWin.SkinControl.SkinButton();
-            this.lblCurrentAnswer = new CCWin.SkinControl.SkinLabel();
             this.skinPanel1.SuspendLayout();
             this.skinPanel2.SuspendLayout();
             this.skinPanel3.SuspendLayout();
@@ -266,7 +266,7 @@
             // lblquestion
             // 
             this.lblquestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblquestion.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold);
+            this.lblquestion.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Bold);
             this.lblquestion.Location = new System.Drawing.Point(0, 0);
             this.lblquestion.Name = "lblquestion";
             this.lblquestion.Size = new System.Drawing.Size(616, 115);
@@ -362,6 +362,17 @@
             this.skinPanel4.NormlBack = null;
             this.skinPanel4.Size = new System.Drawing.Size(1096, 204);
             this.skinPanel4.TabIndex = 8;
+            // 
+            // lblCurrentAnswer
+            // 
+            this.lblCurrentAnswer.AutoSize = true;
+            this.lblCurrentAnswer.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentAnswer.BorderColor = System.Drawing.Color.White;
+            this.lblCurrentAnswer.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCurrentAnswer.Location = new System.Drawing.Point(831, 176);
+            this.lblCurrentAnswer.Name = "lblCurrentAnswer";
+            this.lblCurrentAnswer.Size = new System.Drawing.Size(0, 22);
+            this.lblCurrentAnswer.TabIndex = 8;
             // 
             // radioD
             // 
@@ -553,17 +564,6 @@
             this.btnCollect.Text = "收藏此题";
             this.btnCollect.UseVisualStyleBackColor = false;
             this.btnCollect.Click += new System.EventHandler(this.btnCollect_Click);
-            // 
-            // lblCurrentAnswer
-            // 
-            this.lblCurrentAnswer.AutoSize = true;
-            this.lblCurrentAnswer.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentAnswer.BorderColor = System.Drawing.Color.White;
-            this.lblCurrentAnswer.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblCurrentAnswer.Location = new System.Drawing.Point(831, 176);
-            this.lblCurrentAnswer.Name = "lblCurrentAnswer";
-            this.lblCurrentAnswer.Size = new System.Drawing.Size(0, 22);
-            this.lblCurrentAnswer.TabIndex = 8;
             // 
             // PracticeTest
             // 
