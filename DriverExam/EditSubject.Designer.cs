@@ -362,6 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(681, 443);
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.skinLabel11);

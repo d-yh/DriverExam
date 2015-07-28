@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DriverExam
 {
-    public partial class Practice : Skin_DevExpress
+    public partial class Practice : CCSkinMain
     {
         private DataTable dt;
         private string random = "";
@@ -150,6 +150,7 @@ namespace DriverExam
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            isError = true;
             index--;
             setLayout();
         }

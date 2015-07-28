@@ -356,7 +356,7 @@
             // 
             // skinPanel1
             // 
-            this.skinPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.skinPanel1.BackColor = System.Drawing.Color.White;
             this.skinPanel1.Controls.Add(this.skinPanel3);
             this.skinPanel1.Controls.Add(this.skinLabel2);
             this.skinPanel1.Controls.Add(this.skinPanel2);
@@ -400,7 +400,7 @@
             this.skinLabel2.AutoSize = true;
             this.skinLabel2.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel2.BorderColor = System.Drawing.Color.White;
-            this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel2.Location = new System.Drawing.Point(7, 305);
             this.skinLabel2.Name = "skinLabel2";
             this.skinLabel2.Size = new System.Drawing.Size(112, 27);
@@ -456,6 +456,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(865, 569);
             this.Controls.Add(this.skinLabel3);
             this.Controls.Add(this.lblError);

@@ -75,6 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(284, 104);
             this.Controls.Add(this.btnSure);
             this.Controls.Add(this.skinLabel1);

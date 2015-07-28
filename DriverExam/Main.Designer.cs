@@ -396,6 +396,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(699, 420);
             this.Controls.Add(this.skinPanel2);
             this.Controls.Add(this.skinToolStrip1);
