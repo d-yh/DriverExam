@@ -34,7 +34,7 @@ namespace DriverExam
 
         private void LoadDefault()
         {
-            this.TopMost = true;
+            //this.TopMost = true;
             dt = new Tool().ExecuteSqlQuery("select distinct * from ExamSubject");
             setRandomIndex();
             setQuestion();
@@ -43,7 +43,6 @@ namespace DriverExam
         private void setQuestion()
         {
             IsShowSelect();
-            //btnCommit.Enabled = index > 0;
             btnBack.Enabled = index > 0;
             if (index >= 100)
             {
@@ -71,7 +70,10 @@ namespace DriverExam
             //判断该题的类型是单选，判断，多选
             if (dt.Rows[listNumber[index]]["type"].ToString() == "多项选择题") //必是多选
             {
-
+                lblA.Visible = true;
+                lblB.Visible = true;
+                lblC.Visible = true;
+                lblD.Visible = true;
                 this.checkBoxA.Visible = true;
                 this.checkBoxB.Visible = true;
                 this.checkBoxC.Visible = true;
@@ -80,15 +82,14 @@ namespace DriverExam
                 this.radioB.Visible = false;
                 this.radioC.Visible = false;
                 this.radioD.Visible = false;
-
-                this.checkBoxA.Text = "A." + dt.Rows[listNumber[index]]["option_a"].ToString().Replace("A","");
-                this.checkBoxB.Text = "B." + dt.Rows[listNumber[index]]["option_b"].ToString().Replace("B","");
-                this.checkBoxC.Text = "C." + dt.Rows[listNumber[index]]["option_c"].ToString().Replace("C", "");
-                this.checkBoxD.Text = "D." + dt.Rows[listNumber[index]]["option_d"].ToString().Replace("D", "");
             }
 
             if (dt.Rows[listNumber[index]]["type"].ToString() == "单项选择题")//必是单选
             {
+                lblA.Visible = true;
+                lblB.Visible = true;
+                lblC.Visible = true;
+                lblD.Visible = true;
                 this.checkBoxA.Visible = false;
                 this.checkBoxB.Visible = false;
                 this.checkBoxC.Visible = false;
@@ -97,11 +98,8 @@ namespace DriverExam
                 this.radioB.Visible = true;
                 this.radioC.Visible = true;
                 this.radioD.Visible = true;
-
-                this.radioA.Text = "A." + dt.Rows[listNumber[index]]["option_a"].ToString();
-                this.radioB.Text = "B." + dt.Rows[listNumber[index]]["option_b"].ToString();
-                this.radioC.Text = "C." + dt.Rows[listNumber[index]]["option_c"].ToString();
-                this.radioD.Text = "D." + dt.Rows[listNumber[index]]["option_d"].ToString();
+                this.radioA.Text = "A";
+                this.radioB.Text = "B";
             }
 
             if (dt.Rows[listNumber[index]]["type"].ToString() == "判断题")
@@ -114,10 +112,20 @@ namespace DriverExam
                 this.radioB.Visible = true;
                 this.radioC.Visible = false;
                 this.radioD.Visible = false;
-                this.radioA.Text = "正确";
-                this.radioB.Text = "错误";
+                lblA.Visible = false;
+                lblB.Visible = false;
+                lblC.Visible = false;
+                lblD.Visible = false;
+                this.radioA.Text = "对";
+                this.radioB.Text = "错";
 
             }
+            this.lblInfo.Visible = checkBoxA.Visible;
+            this.btnTrue.Visible = checkBoxA.Visible;
+            this.lblA.Text = "A." + dt.Rows[listNumber[index]]["option_a"].ToString().Replace("A", "");
+            this.lblB.Text = "B." + dt.Rows[listNumber[index]]["option_b"].ToString().Replace("B", "");
+            this.lblC.Text = "C." + dt.Rows[listNumber[index]]["option_c"].ToString().Replace("C", "");
+            this.lblD.Text = "D." + dt.Rows[listNumber[index]]["option_d"].ToString().Replace("D", "");
             lblquestion.Text = "(" + dt.Rows[listNumber[index]]["type"].ToString()+")" + dt.Rows[listNumber[index]]["question"].ToString();
         }
         private void setRandomIndex()
@@ -152,6 +160,7 @@ namespace DriverExam
             DataTable dtable = new Tool().ExecuteSqlQuery(sqlString);
             lblname.Text = dtable.Rows[0]["real_name"].ToString();
             lbluser.Text = dtable.Rows[0]["name"].ToString();
+            this.checkBoxIsNext.Checked = true;
             for (int i = 0; i < 100; i++)
             {
                 Label lbl = new Label();
@@ -172,23 +181,32 @@ namespace DriverExam
             totalTime++;
             if (totalTime == 3600)
             {
+                this.checkBoxA.Enabled = false;
+                this.checkBoxB.Enabled = false;
+                this.checkBoxC.Enabled = false;
+                this.checkBoxD.Enabled = false;
+                this.radioA.Enabled = false;
+                this.radioB.Enabled = false;
+                this.radioC.Enabled = false;
+                this.radioD.Enabled = false;
+                btnTrue.Enabled = false;
+                lblTrue.Visible = true;
                 btnBack.Enabled = false;
                 btnNext.Enabled = false;
                 btnCommit.Enabled = false;
                 timerExam.Enabled = false;
                 checkBoxIsNext.Enabled = false;
                 lblresult.Text = "" + getResult() + "分";
-                skinPanel4.Enabled = false;
                 isEnd = true;
+                string selectAnswer = dt.Rows[listNumber[index]]["answer"].ToString().Replace("Y", "对");
+                selectAnswer = selectAnswer.Replace("N", "错");
                 if (index == 0)
                 {
-                    lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index]]["answer"].ToString();
-                    lblCustomer.Text = "您的答案：" + answers[index];
+                    lblTrue.Text = "正确答案：" + selectAnswer;
                     MessageBoxEx.Show("您的答题时间已到,系统已经强制交卷");
                     return;
                 }
-                lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index - 1]]["answer"].ToString();
-                lblCustomer.Text = "您的答案：" + answers[index - 1];
+                lblTrue.Text = "正确答案：" + selectAnswer;
                 MessageBoxEx.Show("您的答题时间已到,系统已经强制交卷");
             }
             DateTime endTime = DateTime.Now;
@@ -229,7 +247,7 @@ namespace DriverExam
                     answer = "N";
                 }
             }
-            else if(dt.Rows[listNumber[index]]["type"].ToString().Trim() == "多项选择题" && dt.Rows[listNumber[index]]["answer"].ToString().Length > 1)
+            else if(dt.Rows[listNumber[index]]["type"].ToString().Trim() == "多项选择题")
             {               
                 answer += checkBoxA.Checked ? "A" : "";
                 answer += checkBoxB.Checked ? "B" : "";
@@ -255,16 +273,13 @@ namespace DriverExam
                 index = 99;
             }
              //totalLbl[index].BackColor = Color.Gray;
-             saveSelected();             
-             totalLbl[index].Text = "" + (this.index + 1) + ":" + answers[index];
-             selectedNumber.Add(index);//保存所做的索引
+            
              index++;
              setQuestion();           
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.lblCurrentAnswer.Text = "您的选择：" + answers[index];
             if (index >= 100)
             {
                 index = 99;
@@ -276,7 +291,7 @@ namespace DriverExam
         private void lbl_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            
+            string selectAnswer = "";
             if(lbl.Name.ToString().Length==4)
             {
                 index =Convert.ToInt16(lbl.Name.ToString().Substring(3,1))-1;
@@ -291,10 +306,17 @@ namespace DriverExam
             }
             if (isEnd)
             {
-                lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index]]["answer"].ToString();
-                lblCustomer.Text = "您的答案：" + answers[index];
+                selectAnswer = dt.Rows[listNumber[index]]["answer"].ToString().Replace("Y", "对");
+                selectAnswer = selectAnswer.Replace("N", "错");
+                lblTrue.Text = "正确答案：" + selectAnswer;
             }
-            this.lblCurrentAnswer.Text = "您的选择：" + answers[index];
+            try
+            {
+                selectAnswer = answers[index].Replace("Y", "对");
+                selectAnswer = selectAnswer.Replace("N", "错");
+            }
+            catch { }           
+            this.lblCurrentAnswer.Text = "您的选择：" + selectAnswer;
             setQuestion();
         }
 
@@ -302,22 +324,31 @@ namespace DriverExam
         {
             if (MessageBox.Show("您确认交卷吗", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                this.checkBoxA.Enabled = false;
+                this.checkBoxB.Enabled = false;
+                this.checkBoxC.Enabled = false;
+                this.checkBoxD.Enabled = false;
+                this.radioA.Enabled = false;
+                this.radioB.Enabled = false;
+                this.radioC.Enabled = false;
+                this.radioD.Enabled = false;
+                btnTrue.Enabled = false;
+                lblTrue.Visible = true;
                 btnBack.Enabled = false;
                 btnNext.Enabled = false;
                 btnCommit.Enabled = false;
                 timerExam.Enabled = false;
                 checkBoxIsNext.Enabled = false;
                 lblresult.Text = "" + getResult() + "分";
-                skinPanel4.Enabled = false;
                 isEnd = true;
+                string selectAnswer = dt.Rows[listNumber[index]]["answer"].ToString().Replace("Y", "对");
+                selectAnswer = selectAnswer.Replace("N", "错");
                 if (index == 0)
                 {
-                    lblTrue.Text = "正确答案：" + dt.Rows[listNumber[index]]["answer"].ToString();
-                    lblCustomer.Text = "您的答案：" + answers[index];
+                    lblTrue.Text = "正确答案：" + selectAnswer;
                     return;
                 }
-                lblTrue.Text = "正确答案："+dt.Rows[listNumber[index-1]]["answer"].ToString();
-                lblCustomer.Text = "您的答案："+answers[index-1];
+                lblTrue.Text = "正确答案：" + selectAnswer;
             }
         }
 
@@ -343,11 +374,14 @@ namespace DriverExam
             }
             else
             {
+                lblCurrentAnswer.Text ="您的选择："+ radio.Text;//向用户展示他的选择
                 checkBoxIsNext.Enabled = false;
             }
+
+            
             if (checkBoxIsNext.Checked && radio.Checked &&!checkBoxA.Visible)
             {
-                btnNext_Click(this, new EventArgs());
+                btnTrue_Click(this, new EventArgs());
             }
         }
 
@@ -370,13 +404,8 @@ namespace DriverExam
             return result;
         }
 
-        private void checkBoxIsNext_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
-        /// 检查该题用户是否做过，是否显示选择答案
+        /// 检查该题用户是否做过
         /// </summary>
         private void IsShowSelect()
         {
@@ -384,12 +413,26 @@ namespace DriverExam
             {
                 if (index == selectedNumber[i])//说明有
                 {
+                    string selectAnswer = answers[index].Replace("Y","对");
+                    selectAnswer = selectAnswer.Replace("N", "错");
                     lblCurrentAnswer.Visible = true;
-                    lblCurrentAnswer.Text = "您所选的答案：" + answers[index];
+                    lblCurrentAnswer.Text = "您的选择：" + selectAnswer;
                     return;
                 }
             }
-            lblCurrentAnswer.Visible = false;
+            lblCurrentAnswer.Text = "您的选择:";
+        }
+
+        private void btnTrue_Click(object sender, EventArgs e)
+        {          
+            saveSelected();
+            string selectAnswer = "" + (this.index + 1) + ":" + answers[index];
+            selectAnswer = selectAnswer.Replace("Y", "对");
+            selectAnswer = selectAnswer.Replace("N", "错");
+            totalLbl[index].Text =selectAnswer;
+            selectedNumber.Add(index);//保存所做的索引
+            //进入下一题
+            btnNext_Click(this, new EventArgs());
         }
     }
 }
