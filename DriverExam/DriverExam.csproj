@@ -95,6 +95,12 @@
       <DependentUpon>AddSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="DBtool\Tool.cs" />
+    <Compile Include="EditExamSkillManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditExamSkillManage.Designer.cs">
+      <DependentUpon>EditExamSkillManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSectionManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="EditUserManager.Designer.cs">
       <DependentUpon>EditUserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamSkillManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamSkillManage.Designer.cs">
+      <DependentUpon>ExamSkillManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -151,6 +163,12 @@
     <Compile Include="SelectSection.Designer.cs">
       <DependentUpon>SelectSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Skills.Designer.cs">
+      <DependentUpon>Skills.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +178,9 @@
     <EmbeddedResource Include="AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditExamSkillManage.resx">
+      <DependentUpon>EditExamSkillManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSectionManage.resx">
       <DependentUpon>EditSectionManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditUserManager.resx">
       <DependentUpon>EditUserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamSkillManage.resx">
+      <DependentUpon>ExamSkillManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -196,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectSection.resx">
       <DependentUpon>SelectSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skills.resx">
+      <DependentUpon>Skills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>

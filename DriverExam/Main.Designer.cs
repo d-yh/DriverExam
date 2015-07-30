@@ -64,6 +64,7 @@
             this.excel导入题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动添加题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.过关秘籍管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinToolStrip1.SuspendLayout();
             this.skinPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -432,7 +433,8 @@
             this.系统设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.用户管理ToolStripMenuItem,
             this.题库管理ToolStripMenuItem,
-            this.系统数据ToolStripMenuItem});
+            this.系统数据ToolStripMenuItem,
+            this.过关秘籍管理ToolStripMenuItem});
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
             this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.系统设置ToolStripMenuItem.Text = "系统设置";
@@ -473,6 +475,13 @@
             this.系统数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.系统数据ToolStripMenuItem.Text = "章节管理";
             this.系统数据ToolStripMenuItem.Click += new System.EventHandler(this.系统数据ToolStripMenuItem_Click);
+            // 
+            // 过关秘籍管理ToolStripMenuItem
+            // 
+            this.过关秘籍管理ToolStripMenuItem.Name = "过关秘籍管理ToolStripMenuItem";
+            this.过关秘籍管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.过关秘籍管理ToolStripMenuItem.Text = "过关秘籍管理";
+            this.过关秘籍管理ToolStripMenuItem.Click += new System.EventHandler(this.过关秘籍管理ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -540,6 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItemBtnMore_order;
         private System.Windows.Forms.ToolStripMenuItem MenuItemBtnMore_random;
         private System.Windows.Forms.ToolStripMenuItem MenuItemBtnMore_difficult;
+        private System.Windows.Forms.ToolStripMenuItem 过关秘籍管理ToolStripMenuItem;
 
     }
 }

@@ -51,7 +51,7 @@ namespace DriverExam
                 btnNext.Enabled = false;
                 return;
             }
-            btnNext.Enabled = index < dt.Rows.Count;
+            btnNext.Enabled = index < 99;
             clearSelected();
             topicNumber.Text = "" + (index+1);
             if (isEnd)
@@ -603,6 +603,10 @@ namespace DriverExam
 
         private DataTable getCurrentSubject()
         {
+            if (index == 100)
+            {
+                index = 99;
+            }
             SubjectString = "select * from ExamSubject where random_number = '" + listNumber[index] + "'";
             DataTable dt = new Tool().ExecuteSqlQuery(SubjectString);
             return dt;

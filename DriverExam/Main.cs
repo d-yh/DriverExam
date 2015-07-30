@@ -161,7 +161,12 @@ namespace DriverExam
 
         private void toolStripButton过关秘籍_Click(object sender, EventArgs e)
         {
+            new Skills().Show();
+        }
 
+        private void 过关秘籍管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ExamSkillManage().Show();
         }
     }
 }
