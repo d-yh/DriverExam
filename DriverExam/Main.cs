@@ -126,7 +126,7 @@ namespace DriverExam
         private void MenuItemBtnSingle_difficult_Click(object sender, EventArgs e)
         {
 
-            new Practice("四川省机动车教练员从业考试操作系统-单项练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '单项选择题' and b.section='难题强化'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-单项练习-难题强化", "select * from ExamSubject where type = '单项选择题' and problem='难题强化'").Show();
         }
 
         private void MenuItemBtnJudge_order_Click(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace DriverExam
 
         private void MenuItemBtnJudge_difficult_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车教练员从业考试操作系统-判断练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '判断题' and b.section='难题强化'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-判断练习-难题强化", "select * from ExamSubject where type = '判断题' and problem='难题强化'").Show();
         }
 
         private void MenuItemBtnMore_order_Click(object sender, EventArgs e)
@@ -156,7 +156,12 @@ namespace DriverExam
 
         private void MenuItemBtnMore_difficult_Click(object sender, EventArgs e)
         {
-            new Practice("四川省机动车教练员从业考试操作系统-多项练习-难题强化", "select * from ExamSubject a left join ExamSection b on a.section = b.id where a.type = '多项选择题' and b.section='难题强化'").Show();
+            new Practice("四川省机动车教练员从业考试操作系统-多项练习-难题强化", "select * from ExamSubject where type = '多项选择题' and problem='难题强化'").Show();
+        }
+
+        private void toolStripButton过关秘籍_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -52,6 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.skinLabel11 = new CCWin.SkinControl.SkinLabel();
             this.txtDetail = new CCWin.SkinControl.SkinWaterTextBox();
+            this.skinLabel12 = new CCWin.SkinControl.SkinLabel();
+            this.checkBoxIsDifficult = new CCWin.SkinControl.SkinCheckBox();
             this.SuspendLayout();
             // 
             // skinLabel1
@@ -198,6 +200,7 @@
             this.cbTopic.Size = new System.Drawing.Size(121, 22);
             this.cbTopic.TabIndex = 11;
             this.cbTopic.WaterText = "";
+            this.cbTopic.SelectedIndexChanged += new System.EventHandler(this.cbTopic_SelectedIndexChanged);
             // 
             // cbSubjectType
             // 
@@ -330,7 +333,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(288, 225);
+            this.label1.Location = new System.Drawing.Point(289, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(368, 17);
             this.label1.TabIndex = 22;
@@ -358,12 +361,45 @@
             this.txtDetail.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtDetail.WaterText = "";
             // 
+            // skinLabel12
+            // 
+            this.skinLabel12.AutoSize = true;
+            this.skinLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel12.BorderColor = System.Drawing.Color.White;
+            this.skinLabel12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel12.Location = new System.Drawing.Point(290, 229);
+            this.skinLabel12.Name = "skinLabel12";
+            this.skinLabel12.Size = new System.Drawing.Size(92, 17);
+            this.skinLabel12.TabIndex = 25;
+            this.skinLabel12.Text = "是否属于难题：";
+            // 
+            // checkBoxIsDifficult
+            // 
+            this.checkBoxIsDifficult.AutoSize = true;
+            this.checkBoxIsDifficult.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxIsDifficult.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.checkBoxIsDifficult.DownBack = null;
+            this.checkBoxIsDifficult.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBoxIsDifficult.Location = new System.Drawing.Point(381, 228);
+            this.checkBoxIsDifficult.MouseBack = null;
+            this.checkBoxIsDifficult.Name = "checkBoxIsDifficult";
+            this.checkBoxIsDifficult.NormlBack = null;
+            this.checkBoxIsDifficult.SelectedDownBack = null;
+            this.checkBoxIsDifficult.SelectedMouseBack = null;
+            this.checkBoxIsDifficult.SelectedNormlBack = null;
+            this.checkBoxIsDifficult.Size = new System.Drawing.Size(39, 21);
+            this.checkBoxIsDifficult.TabIndex = 26;
+            this.checkBoxIsDifficult.Text = "是";
+            this.checkBoxIsDifficult.UseVisualStyleBackColor = false;
+            // 
             // EditSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(681, 443);
+            this.Controls.Add(this.checkBoxIsDifficult);
+            this.Controls.Add(this.skinLabel12);
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.skinLabel11);
             this.Controls.Add(this.label1);
@@ -425,5 +461,7 @@
         private System.Windows.Forms.Label label1;
         private CCWin.SkinControl.SkinLabel skinLabel11;
         private CCWin.SkinControl.SkinWaterTextBox txtDetail;
+        private CCWin.SkinControl.SkinLabel skinLabel12;
+        private CCWin.SkinControl.SkinCheckBox checkBoxIsDifficult;
     }
 }

@@ -39,8 +39,10 @@
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.skinLabel1 = new CCWin.SkinControl.SkinLabel();
-            this.txtSearch = new CCWin.SkinControl.SkinWaterTextBox();
+            this.txtSearchQuestion = new CCWin.SkinControl.SkinWaterTextBox();
             this.dgRuleTable = new CCWin.SkinControl.SkinDataGridView();
+            this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
+            this.txtSearchSection = new CCWin.SkinControl.SkinWaterTextBox();
             this.skinToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgRuleTable)).BeginInit();
             this.SuspendLayout();
@@ -146,20 +148,20 @@
             this.skinLabel1.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel1.BorderColor = System.Drawing.Color.White;
             this.skinLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel1.Location = new System.Drawing.Point(177, 37);
+            this.skinLabel1.Location = new System.Drawing.Point(176, 41);
             this.skinLabel1.Name = "skinLabel1";
             this.skinLabel1.Size = new System.Drawing.Size(88, 17);
             this.skinLabel1.TabIndex = 9;
             this.skinLabel1.Text = "模糊查询(问题)";
             // 
-            // txtSearch
+            // txtSearchQuestion
             // 
-            this.txtSearch.Location = new System.Drawing.Point(319, 37);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(128, 21);
-            this.txtSearch.TabIndex = 8;
-            this.txtSearch.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.txtSearch.WaterText = "";
+            this.txtSearchQuestion.Location = new System.Drawing.Point(270, 41);
+            this.txtSearchQuestion.Name = "txtSearchQuestion";
+            this.txtSearchQuestion.Size = new System.Drawing.Size(128, 21);
+            this.txtSearchQuestion.TabIndex = 8;
+            this.txtSearchQuestion.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtSearchQuestion.WaterText = "";
             // 
             // dgRuleTable
             // 
@@ -211,15 +213,38 @@
             this.dgRuleTable.TitleBackColorBegin = System.Drawing.Color.White;
             this.dgRuleTable.TitleBackColorEnd = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(196)))), ((int)(((byte)(242)))));
             // 
+            // skinLabel2
+            // 
+            this.skinLabel2.AutoSize = true;
+            this.skinLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel2.BorderColor = System.Drawing.Color.White;
+            this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel2.Location = new System.Drawing.Point(425, 41);
+            this.skinLabel2.Name = "skinLabel2";
+            this.skinLabel2.Size = new System.Drawing.Size(88, 17);
+            this.skinLabel2.TabIndex = 11;
+            this.skinLabel2.Text = "模糊查询(章节)";
+            // 
+            // txtSearchSection
+            // 
+            this.txtSearchSection.Location = new System.Drawing.Point(529, 41);
+            this.txtSearchSection.Name = "txtSearchSection";
+            this.txtSearchSection.Size = new System.Drawing.Size(128, 21);
+            this.txtSearchSection.TabIndex = 12;
+            this.txtSearchSection.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtSearchSection.WaterText = "";
+            // 
             // AddSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanResize = false;
             this.ClientSize = new System.Drawing.Size(730, 451);
+            this.Controls.Add(this.txtSearchSection);
+            this.Controls.Add(this.skinLabel2);
             this.Controls.Add(this.dgRuleTable);
             this.Controls.Add(this.skinLabel1);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.txtSearchQuestion);
             this.Controls.Add(this.skinToolStrip1);
             this.Name = "AddSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -241,7 +266,9 @@
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripButton btnSearch;
         private CCWin.SkinControl.SkinLabel skinLabel1;
-        private CCWin.SkinControl.SkinWaterTextBox txtSearch;
+        private CCWin.SkinControl.SkinWaterTextBox txtSearchQuestion;
         private CCWin.SkinControl.SkinDataGridView dgRuleTable;
+        private CCWin.SkinControl.SkinLabel skinLabel2;
+        private CCWin.SkinControl.SkinWaterTextBox txtSearchSection;
     }
 }

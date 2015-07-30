@@ -34,9 +34,21 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBtnSingle = new System.Windows.Forms.ToolStripDropDownButton();
+            this.MenuItemBtnSingle_order = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnSingle_random = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnSingle_difficult = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripBtnJudge = new System.Windows.Forms.ToolStripDropDownButton();
+            this.MenuItemBtnJudge_order = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnJudge_random = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnJudge_difficult = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripBtnMore = new System.Windows.Forms.ToolStripDropDownButton();
+            this.MenuItemBtnMore_order = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnMore_random = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemBtnMore_difficult = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton过关秘籍 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
@@ -52,18 +64,6 @@
             this.excel导入题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动添加题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripBtnSingle = new System.Windows.Forms.ToolStripDropDownButton();
-            this.MenuItemBtnSingle_order = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnSingle_random = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnSingle_difficult = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripBtnJudge = new System.Windows.Forms.ToolStripDropDownButton();
-            this.MenuItemBtnJudge_order = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnJudge_random = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnJudge_difficult = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripBtnMore = new System.Windows.Forms.ToolStripDropDownButton();
-            this.MenuItemBtnMore_order = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnMore_random = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemBtnMore_difficult = new System.Windows.Forms.ToolStripMenuItem();
             this.skinToolStrip1.SuspendLayout();
             this.skinPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,7 +117,7 @@
             this.toolStripBtnMore,
             this.toolStripSeparator2,
             this.toolStripButton6,
-            this.toolStripButton8,
+            this.toolStripButton过关秘籍,
             this.toolStripSeparator3,
             this.toolStripButton9,
             this.toolStripButton10,
@@ -169,6 +169,108 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 56);
             // 
+            // toolStripBtnSingle
+            // 
+            this.toolStripBtnSingle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemBtnSingle_order,
+            this.MenuItemBtnSingle_random,
+            this.MenuItemBtnSingle_difficult});
+            this.toolStripBtnSingle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnSingle.Image")));
+            this.toolStripBtnSingle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSingle.Name = "toolStripBtnSingle";
+            this.toolStripBtnSingle.Size = new System.Drawing.Size(81, 53);
+            this.toolStripBtnSingle.Text = "单项选择题";
+            this.toolStripBtnSingle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // MenuItemBtnSingle_order
+            // 
+            this.MenuItemBtnSingle_order.Name = "MenuItemBtnSingle_order";
+            this.MenuItemBtnSingle_order.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnSingle_order.Text = "顺序练习";
+            this.MenuItemBtnSingle_order.Click += new System.EventHandler(this.MenuItemBtnSingle_order_Click);
+            // 
+            // MenuItemBtnSingle_random
+            // 
+            this.MenuItemBtnSingle_random.Name = "MenuItemBtnSingle_random";
+            this.MenuItemBtnSingle_random.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnSingle_random.Text = "随机练习";
+            this.MenuItemBtnSingle_random.Click += new System.EventHandler(this.MenuItemBtnSingle_random_Click);
+            // 
+            // MenuItemBtnSingle_difficult
+            // 
+            this.MenuItemBtnSingle_difficult.Name = "MenuItemBtnSingle_difficult";
+            this.MenuItemBtnSingle_difficult.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnSingle_difficult.Text = "难题练习";
+            this.MenuItemBtnSingle_difficult.Click += new System.EventHandler(this.MenuItemBtnSingle_difficult_Click);
+            // 
+            // toolStripBtnJudge
+            // 
+            this.toolStripBtnJudge.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemBtnJudge_order,
+            this.MenuItemBtnJudge_random,
+            this.MenuItemBtnJudge_difficult});
+            this.toolStripBtnJudge.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnJudge.Image")));
+            this.toolStripBtnJudge.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnJudge.Name = "toolStripBtnJudge";
+            this.toolStripBtnJudge.Size = new System.Drawing.Size(57, 53);
+            this.toolStripBtnJudge.Text = "判断题";
+            this.toolStripBtnJudge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // MenuItemBtnJudge_order
+            // 
+            this.MenuItemBtnJudge_order.Name = "MenuItemBtnJudge_order";
+            this.MenuItemBtnJudge_order.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnJudge_order.Text = "顺序练习";
+            this.MenuItemBtnJudge_order.Click += new System.EventHandler(this.MenuItemBtnJudge_order_Click);
+            // 
+            // MenuItemBtnJudge_random
+            // 
+            this.MenuItemBtnJudge_random.Name = "MenuItemBtnJudge_random";
+            this.MenuItemBtnJudge_random.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnJudge_random.Text = "随机练习";
+            this.MenuItemBtnJudge_random.Click += new System.EventHandler(this.MenuItemBtnJudge_random_Click);
+            // 
+            // MenuItemBtnJudge_difficult
+            // 
+            this.MenuItemBtnJudge_difficult.Name = "MenuItemBtnJudge_difficult";
+            this.MenuItemBtnJudge_difficult.Size = new System.Drawing.Size(124, 22);
+            this.MenuItemBtnJudge_difficult.Text = "难题练习";
+            this.MenuItemBtnJudge_difficult.Click += new System.EventHandler(this.MenuItemBtnJudge_difficult_Click);
+            // 
+            // toolStripBtnMore
+            // 
+            this.toolStripBtnMore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemBtnMore_order,
+            this.MenuItemBtnMore_random,
+            this.MenuItemBtnMore_difficult});
+            this.toolStripBtnMore.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnMore.Image")));
+            this.toolStripBtnMore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnMore.Name = "toolStripBtnMore";
+            this.toolStripBtnMore.Size = new System.Drawing.Size(81, 53);
+            this.toolStripBtnMore.Text = "多项选择题";
+            this.toolStripBtnMore.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // MenuItemBtnMore_order
+            // 
+            this.MenuItemBtnMore_order.Name = "MenuItemBtnMore_order";
+            this.MenuItemBtnMore_order.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_order.Text = "顺序练习";
+            this.MenuItemBtnMore_order.Click += new System.EventHandler(this.MenuItemBtnMore_order_Click);
+            // 
+            // MenuItemBtnMore_random
+            // 
+            this.MenuItemBtnMore_random.Name = "MenuItemBtnMore_random";
+            this.MenuItemBtnMore_random.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_random.Text = "随机练习";
+            this.MenuItemBtnMore_random.Click += new System.EventHandler(this.MenuItemBtnMore_random_Click);
+            // 
+            // MenuItemBtnMore_difficult
+            // 
+            this.MenuItemBtnMore_difficult.Name = "MenuItemBtnMore_difficult";
+            this.MenuItemBtnMore_difficult.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_difficult.Text = "难题练习";
+            this.MenuItemBtnMore_difficult.Click += new System.EventHandler(this.MenuItemBtnMore_difficult_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -184,14 +286,15 @@
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click_1);
             // 
-            // toolStripButton8
+            // toolStripButton过关秘籍
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(60, 53);
-            this.toolStripButton8.Text = "过关秘籍";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton过关秘籍.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton过关秘籍.Image")));
+            this.toolStripButton过关秘籍.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton过关秘籍.Name = "toolStripButton过关秘籍";
+            this.toolStripButton过关秘籍.Size = new System.Drawing.Size(60, 53);
+            this.toolStripButton过关秘籍.Text = "过关秘籍";
+            this.toolStripButton过关秘籍.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton过关秘籍.Click += new System.EventHandler(this.toolStripButton过关秘籍_Click);
             // 
             // toolStripSeparator3
             // 
@@ -371,107 +474,6 @@
             this.系统数据ToolStripMenuItem.Text = "章节管理";
             this.系统数据ToolStripMenuItem.Click += new System.EventHandler(this.系统数据ToolStripMenuItem_Click);
             // 
-            // toolStripBtnSingle
-            // 
-            this.toolStripBtnSingle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemBtnSingle_order,
-            this.MenuItemBtnSingle_random,
-            this.MenuItemBtnSingle_difficult});
-            this.toolStripBtnSingle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnSingle.Image")));
-            this.toolStripBtnSingle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSingle.Name = "toolStripBtnSingle";
-            this.toolStripBtnSingle.Size = new System.Drawing.Size(81, 53);
-            this.toolStripBtnSingle.Text = "单项选择题";
-            this.toolStripBtnSingle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // MenuItemBtnSingle_order
-            // 
-            this.MenuItemBtnSingle_order.Name = "MenuItemBtnSingle_order";
-            this.MenuItemBtnSingle_order.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnSingle_order.Text = "顺序练习";
-            this.MenuItemBtnSingle_order.Click += new System.EventHandler(this.MenuItemBtnSingle_order_Click);
-            // 
-            // MenuItemBtnSingle_random
-            // 
-            this.MenuItemBtnSingle_random.Name = "MenuItemBtnSingle_random";
-            this.MenuItemBtnSingle_random.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnSingle_random.Text = "随机练习";
-            this.MenuItemBtnSingle_random.Click += new System.EventHandler(this.MenuItemBtnSingle_random_Click);
-            // 
-            // MenuItemBtnSingle_difficult
-            // 
-            this.MenuItemBtnSingle_difficult.Name = "MenuItemBtnSingle_difficult";
-            this.MenuItemBtnSingle_difficult.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnSingle_difficult.Text = "难题练习";
-            this.MenuItemBtnSingle_difficult.Click += new System.EventHandler(this.MenuItemBtnSingle_difficult_Click);
-            // 
-            // toolStripBtnJudge
-            // 
-            this.toolStripBtnJudge.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemBtnJudge_order,
-            this.MenuItemBtnJudge_random,
-            this.MenuItemBtnJudge_difficult});
-            this.toolStripBtnJudge.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnJudge.Image")));
-            this.toolStripBtnJudge.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnJudge.Name = "toolStripBtnJudge";
-            this.toolStripBtnJudge.Size = new System.Drawing.Size(57, 53);
-            this.toolStripBtnJudge.Text = "判断题";
-            this.toolStripBtnJudge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // MenuItemBtnJudge_order
-            // 
-            this.MenuItemBtnJudge_order.Name = "MenuItemBtnJudge_order";
-            this.MenuItemBtnJudge_order.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnJudge_order.Text = "顺序练习";
-            this.MenuItemBtnJudge_order.Click += new System.EventHandler(this.MenuItemBtnJudge_order_Click);
-            // 
-            // MenuItemBtnJudge_random
-            // 
-            this.MenuItemBtnJudge_random.Name = "MenuItemBtnJudge_random";
-            this.MenuItemBtnJudge_random.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnJudge_random.Text = "随机练习";
-            this.MenuItemBtnJudge_random.Click += new System.EventHandler(this.MenuItemBtnJudge_random_Click);
-            // 
-            // MenuItemBtnJudge_difficult
-            // 
-            this.MenuItemBtnJudge_difficult.Name = "MenuItemBtnJudge_difficult";
-            this.MenuItemBtnJudge_difficult.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnJudge_difficult.Text = "难题练习";
-            this.MenuItemBtnJudge_difficult.Click += new System.EventHandler(this.MenuItemBtnJudge_difficult_Click);
-            // 
-            // toolStripBtnMore
-            // 
-            this.toolStripBtnMore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemBtnMore_order,
-            this.MenuItemBtnMore_random,
-            this.MenuItemBtnMore_difficult});
-            this.toolStripBtnMore.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnMore.Image")));
-            this.toolStripBtnMore.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnMore.Name = "toolStripBtnMore";
-            this.toolStripBtnMore.Size = new System.Drawing.Size(81, 53);
-            this.toolStripBtnMore.Text = "多项选择题";
-            this.toolStripBtnMore.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // MenuItemBtnMore_order
-            // 
-            this.MenuItemBtnMore_order.Name = "MenuItemBtnMore_order";
-            this.MenuItemBtnMore_order.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnMore_order.Text = "顺序练习";
-            this.MenuItemBtnMore_order.Click += new System.EventHandler(this.MenuItemBtnMore_order_Click);
-            // 
-            // MenuItemBtnMore_random
-            // 
-            this.MenuItemBtnMore_random.Name = "MenuItemBtnMore_random";
-            this.MenuItemBtnMore_random.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnMore_random.Text = "随机练习";
-            this.MenuItemBtnMore_random.Click += new System.EventHandler(this.MenuItemBtnMore_random_Click);
-            // 
-            // MenuItemBtnMore_difficult
-            // 
-            this.MenuItemBtnMore_difficult.Name = "MenuItemBtnMore_difficult";
-            this.MenuItemBtnMore_difficult.Size = new System.Drawing.Size(152, 22);
-            this.MenuItemBtnMore_difficult.Text = "难题练习";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -510,7 +512,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton过关秘籍;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton10;

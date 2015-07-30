@@ -119,8 +119,8 @@ namespace DriverExam
                 this.radioB.Visible = true;
                 this.radioC.Visible = false;
                 this.radioD.Visible = false;
-                this.radioA.Text = "正确";
-                this.radioB.Text = "错误";
+                this.radioA.Text = "对";
+                this.radioB.Text = "错";
 
             }
 
@@ -213,7 +213,7 @@ namespace DriverExam
             //首先判断是何种题目
             if (dt.Rows[this.index]["type"].ToString() == "判断题")
             {
-                if ((this.radioA.Checked && dt.Rows[this.index]["answer"].ToString().Trim() == "Y") || (this.radioB.Checked && dt.Rows[this.index]["answer"].ToString().Trim() == "N"))
+                if ((this.radioA.Checked && dt.Rows[this.index]["answer"].ToString().Trim() == "对") || (this.radioB.Checked && dt.Rows[this.index]["answer"].ToString().Trim() == "错"))
                 {
                     
                     return true;

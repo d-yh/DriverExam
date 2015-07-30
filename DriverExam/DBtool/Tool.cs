@@ -183,19 +183,20 @@ namespace DriverExam
                     dt = ds.Tables[0];
 
                     dt = initData(dt);
-                    cm.Parameters.Add("@topic", SqlDbType.VarChar);
-                    cm.Parameters.Add("@type", SqlDbType.VarChar);
-                    cm.Parameters.Add("@question", SqlDbType.VarChar);
-                    cm.Parameters.Add("@picture_name", SqlDbType.VarChar);
-                    cm.Parameters.Add("@option_a", SqlDbType.VarChar);
-                    cm.Parameters.Add("@option_b", SqlDbType.VarChar);
-                    cm.Parameters.Add("@option_c", SqlDbType.VarChar);
-                    cm.Parameters.Add("@option_d", SqlDbType.VarChar);
-                    cm.Parameters.Add("@answer", SqlDbType.VarChar);
-                    cm.Parameters.Add("@section", SqlDbType.VarChar);
+                    cm.Parameters.Add("@topic", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@type", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@question", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@picture_name", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@option_a", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@option_b", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@option_c", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@option_d", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@answer", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@section", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@problem", SqlDbType.NVarChar);
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        cm.CommandText = "insert into ExamSubject(topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section) values (@topic,@type,@question,@picture_name,@option_a,@option_b,@option_c,@option_d,@answer,@section)";
+                        cm.CommandText = "insert into ExamSubject(topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section,problem) values (@topic,@type,@question,@picture_name,@option_a,@option_b,@option_c,@option_d,@answer,@section,@problem)";
                        
                         cm.Parameters["@topic"].Value = dt.Rows[i]["topic"];
 
@@ -225,15 +226,16 @@ namespace DriverExam
 
                        
                         cm.Parameters["@answer"].Value = dt.Rows[i]["answer"];
-
-                       
-                       
+                  
                         cm.Parameters["@section"].Value = dt.Rows[i]["section"];
+
+                        cm.Parameters["@problem"].Value = dt.Rows[i]["problem"];
 
                         cm.ExecuteNonQuery();
                     }
                     trans.Commit();
-                    
+                    ExecNonSQLQuery("update ExamSubject set answer = '对' where answer = 'Y'");
+                    ExecNonSQLQuery("update ExamSubject set answer = '错' where answer = 'N'");
                     MessageBoxEx.Show("已成功导入");
                 }
                 catch(Exception e)
