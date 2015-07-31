@@ -32,7 +32,7 @@ namespace DriverExam
                 MessageBoxEx.Show("该章节没有任何题目,请添加题目");
                 return;
             }
-            new Practice("章节练习", "select *from ExamSubject where section='" + cbSection.SelectedValue.ToString() + "'").Show();
+            new Practice("章节练习-"+cbSection.Text, "select *from ExamSubject where section='" + cbSection.SelectedValue.ToString() + "'").Show();
             Close();
         }
     }

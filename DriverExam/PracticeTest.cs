@@ -419,13 +419,23 @@ namespace DriverExam
         /// </summary>
         private void getExamData()
         {
+            string sqlString = "";
             try
             {
+                List<string> saveId = new List<string>();//保存已经用过的Id
                 DataTable data;
                 string newSectionId = new Tool().ExecuteSqlQuery("select id from ExamSection where section = '新规新题'").Rows[0]["id"].ToString();
                 string[] sixSectionId = new string[6];
                 string[] sevenSectionId = new string[7];
                 string[] eightSectionId = new string[8];
+
+                data = new Tool().ExecuteSqlQuery("select id from ExamSection");
+                List<string> allSectionId = new List<string>();
+
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    allSectionId.Add(data.Rows[i]["id"].ToString());
+                }
                 //赋值
                 data = new Tool().ExecuteSqlQuery("select id from ExamSection where section = '道路交通安全法律法规' or section = '道路运输法律法规' or section = '教育学.教育心理学及其应用' or section='教学方法及规范化教学' or section='车辆结构与安全性能' or section='环保与节能驾驶'");
 
@@ -448,26 +458,29 @@ namespace DriverExam
 
                 #region 装载判断
                 //先获取难题中的两道图片题
-                string sqlString = "select * from ExamSubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='判断题'";
+                sqlString = "select * from ExamSubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='判断题'";
                 data = new Tool().ExecuteSqlQuery(sqlString);
                 List<int> list = new List<int>();
                 list = getRandom(data, 2);
+
                 for (int i = 0; i < list.Count; i++)
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    saveId.Add(data.Rows[list[i]]["section"].ToString());
                 }
                 //获取剩下的14道判断难题
-                sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='判断题'";
-                data = new Tool().ExecuteSqlQuery(sqlString);
-
-                list = getRandom(data, 14);
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                allSectionId = getCurrentId(allSectionId, saveId);
+                
+              
+                for (int i = 0; i < 14; i++)
+                {                    
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='判断题' and section='" + allSectionId[i] + "'";
+                    data = new Tool().ExecuteSqlQuery(sqlString);
+                    list = getRandom(data, 1);
+                    listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
                 //判断难题装载完毕
-
+               
                 //装载判断 各一题
                 for (int i = 0; i < sixSectionId.Length; i++)
                 {
@@ -492,21 +505,26 @@ namespace DriverExam
 
                 #region 装载单选
                 //装载5道图片题
+                allSectionId = getAllId(allSectionId, saveId);
+                saveId.Clear();
                 sqlString = "select * from ExamSubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='单项选择题'";
                 data = new Tool().ExecuteSqlQuery(sqlString);
                 list = getRandom(data, 5);
                 for (int i = 0; i < list.Count; i++)
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    saveId.Add(data.Rows[list[i]]["section"].ToString());
                 }
 
+                allSectionId = getCurrentId(allSectionId, saveId);
                 //装载剩下的11道难题
-                sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='单项选择题'";
-                data = new Tool().ExecuteSqlQuery(sqlString);
-                list = getRandom(data, 11);
-                for (int i = 0; i < list.Count; i++)
+                
+                for (int i = 0; i < 11; i++)
                 {
-                    listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='单项选择题' and section='" + allSectionId[i] + "'";
+                    data = new Tool().ExecuteSqlQuery(sqlString);
+                    list = getRandom(data, 1);
+                    listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
 
                 //装载各章节各两题
@@ -526,6 +544,8 @@ namespace DriverExam
                 #endregion
 
                 #region 装载多选
+                allSectionId = getAllId(allSectionId,saveId);
+                saveId.Clear();
                 //先获取难题中的3道图片题
                 sqlString = "select * from examsubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='多项选择题'";
                 data = new Tool().ExecuteSqlQuery(sqlString);
@@ -533,15 +553,18 @@ namespace DriverExam
                 for (int i = 0; i < list.Count; i++)
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    saveId.Add(data.Rows[list[i]]["section"].ToString());
                 }
 
+                
                 //装载剩下的13道难题
-                sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='多项选择题'";
-                data = new Tool().ExecuteSqlQuery(sqlString);
-                list = getRandom(data, 13);
-                for (int i = 0; i < list.Count; i++)
+                allSectionId = getCurrentId(allSectionId, saveId);
+                for (int i = 0; i < 13; i++)
                 {
-                    listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='多项选择题' and section = '"+allSectionId[i]+"'";
+                    data = new Tool().ExecuteSqlQuery(sqlString);
+                    list = getRandom(data, 1);
+                    listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
 
                 //装载各章节各3题
@@ -571,6 +594,7 @@ namespace DriverExam
             }
             catch (Exception e)
             {
+                Console.WriteLine(sqlString);
                 MessageBox.Show(e.Message.ToString());
             }           
         }
@@ -596,6 +620,7 @@ namespace DriverExam
             {
                 random = new Random().Next(0,currentList.Count);
                 saveList.Add(currentList[random]);
+                if (needNumber > 1)
                 currentList.RemoveAt(random);
             }
             return saveList;
@@ -610,6 +635,27 @@ namespace DriverExam
             SubjectString = "select * from ExamSubject where random_number = '" + listNumber[index] + "'";
             DataTable dt = new Tool().ExecuteSqlQuery(SubjectString);
             return dt;
+        }
+
+        private List<string> getCurrentId(List<string> allList, List<string> saveList)
+        {
+            for (int i = 0; i < saveList.Count; i++)
+            {
+                if (allList.Contains(saveList[i]))
+                {
+                    allList.Remove(saveList[i]);
+                }
+            }
+            return allList;
+        }
+
+        private List<string> getAllId(List<string> allList, List<string> saveList)
+        {
+            for (int i = 0; i < saveList.Count; i++)
+            {
+                allList.Add(saveList[i]);
+            }
+            return allList;
         }
     }
 }

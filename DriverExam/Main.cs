@@ -36,6 +36,7 @@ namespace DriverExam
         private void Main_Load(object sender, EventArgs e)
         {
             this.系统设置ToolStripMenuItem.Visible = this.name == "admin";
+            this.系统数据ToolStripMenuItem.Visible = false;
         }
 
         private void 系统数据ToolStripMenuItem_Click(object sender, EventArgs e)
