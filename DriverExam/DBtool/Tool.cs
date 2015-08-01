@@ -158,11 +158,14 @@ namespace DriverExam
 
         public void importExcel()
         {
+            OleDbConnection conn = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel files(*.xls,*.xlsx)|*.xls;*.xlsx";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                Loading load = new Loading();
+                load.Show();
                 DataSet ds = new DataSet();
                 SqlConnection cnn = new SqlConnection(connectionString);
                 SqlCommand cm = new SqlCommand();
@@ -175,9 +178,10 @@ namespace DriverExam
                 {
                     //获取全部数据  
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + openFileDialog.FileName + ";" + "Extended Properties=Excel 8.0;";
-                    OleDbConnection conn = new OleDbConnection(strConn);
+                    conn = new OleDbConnection(strConn);
                     conn.Open();
-                    OleDbDataAdapter da = new OleDbDataAdapter("SELECT *  FROM [" + Path.GetFileNameWithoutExtension(openFileDialog.FileName) + "$]", strConn); 
+                    //OleDbDataAdapter da = new OleDbDataAdapter("SELECT *  FROM [" + Path.GetFileNameWithoutExtension(openFileDialog.FileName) + "$]", strConn);
+                    OleDbDataAdapter da = new OleDbDataAdapter("SELECT *  FROM [ExamSubject$]", strConn); 
                     DataTable dt = new DataTable();
                     da.Fill(ds);
                     dt = ds.Tables[0];
@@ -233,9 +237,10 @@ namespace DriverExam
 
                         cm.ExecuteNonQuery();
                     }
+                    
                     trans.Commit();
                     ExecNonSQLQuery("update ExamSubject set answer = '对' where answer = 'Y'");
-                    ExecNonSQLQuery("update ExamSubject set answer = '错' where answer = 'N'");
+                    ExecNonSQLQuery("update ExamSubject set answer = '错' where answer = 'N'");                    
                     MessageBoxEx.Show("已成功导入");
                 }
                 catch(Exception e)
@@ -245,6 +250,8 @@ namespace DriverExam
                 }
                 finally
                 {
+                    load.Close();
+                    conn.Close();
                     cnn.Close();
                     trans.Dispose();
                     cnn.Close();

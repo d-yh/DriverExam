@@ -57,7 +57,6 @@
             this.lblD = new CCWin.SkinControl.SkinLabel();
             this.lblA = new CCWin.SkinControl.SkinLabel();
             this.lblCurrentAnswer = new CCWin.SkinControl.SkinLabel();
-            this.topicNumber = new CCWin.SkinControl.SkinLabel();
             this.skinPanel3 = new CCWin.SkinControl.SkinPanel();
             this.lblquestion = new System.Windows.Forms.Label();
             this.pic = new System.Windows.Forms.PictureBox();
@@ -68,10 +67,12 @@
             this.timerExam = new System.Windows.Forms.Timer(this.components);
             this.checkBoxIsNext = new CCWin.SkinControl.SkinCheckBox();
             this.btnCollect = new CCWin.SkinControl.SkinButton();
+            this.picMax = new System.Windows.Forms.PictureBox();
             this.skinPanel1.SuspendLayout();
             this.skinPanel2.SuspendLayout();
             this.skinPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMax)).BeginInit();
             this.SuspendLayout();
             // 
             // skinPanel1
@@ -203,8 +204,12 @@
             // 
             // skinPanel2
             // 
+            this.skinPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.skinPanel2.BackColor = System.Drawing.Color.Transparent;
             this.skinPanel2.BorderColor = System.Drawing.Color.Black;
+            this.skinPanel2.Controls.Add(this.picMax);
             this.skinPanel2.Controls.Add(this.lblInfo);
             this.skinPanel2.Controls.Add(this.btnTrue);
             this.skinPanel2.Controls.Add(this.radioD);
@@ -222,7 +227,6 @@
             this.skinPanel2.Controls.Add(this.lblD);
             this.skinPanel2.Controls.Add(this.lblA);
             this.skinPanel2.Controls.Add(this.lblCurrentAnswer);
-            this.skinPanel2.Controls.Add(this.topicNumber);
             this.skinPanel2.Controls.Add(this.skinPanel3);
             this.skinPanel2.Controls.Add(this.pic);
             this.skinPanel2.ControlState = CCWin.SkinClass.ControlState.Normal;
@@ -232,7 +236,7 @@
             this.skinPanel2.MouseBack = null;
             this.skinPanel2.Name = "skinPanel2";
             this.skinPanel2.NormlBack = null;
-            this.skinPanel2.Size = new System.Drawing.Size(890, 406);
+            this.skinPanel2.Size = new System.Drawing.Size(1090, 406);
             this.skinPanel2.TabIndex = 1;
             // 
             // lblInfo
@@ -242,7 +246,7 @@
             this.lblInfo.BorderColor = System.Drawing.Color.White;
             this.lblInfo.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.ForeColor = System.Drawing.Color.Red;
-            this.lblInfo.Location = new System.Drawing.Point(512, 345);
+            this.lblInfo.Location = new System.Drawing.Point(721, 349);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(212, 17);
             this.lblInfo.TabIndex = 19;
@@ -254,7 +258,7 @@
             this.btnTrue.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnTrue.DownBack = null;
             this.btnTrue.Font = new System.Drawing.Font("宋体", 9F);
-            this.btnTrue.Location = new System.Drawing.Point(801, 369);
+            this.btnTrue.Location = new System.Drawing.Point(1001, 369);
             this.btnTrue.MouseBack = null;
             this.btnTrue.Name = "btnTrue";
             this.btnTrue.NormlBack = null;
@@ -271,7 +275,7 @@
             this.radioD.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioD.DownBack = null;
             this.radioD.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioD.Location = new System.Drawing.Point(738, 369);
+            this.radioD.Location = new System.Drawing.Point(950, 369);
             this.radioD.MouseBack = null;
             this.radioD.Name = "radioD";
             this.radioD.NormlBack = null;
@@ -290,7 +294,7 @@
             this.skinLabel3.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel3.BorderColor = System.Drawing.Color.White;
             this.skinLabel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel3.Location = new System.Drawing.Point(507, 374);
+            this.skinLabel3.Location = new System.Drawing.Point(720, 374);
             this.skinLabel3.Name = "skinLabel3";
             this.skinLabel3.Size = new System.Drawing.Size(74, 22);
             this.skinLabel3.TabIndex = 17;
@@ -303,7 +307,7 @@
             this.radioC.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioC.DownBack = null;
             this.radioC.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioC.Location = new System.Drawing.Point(686, 369);
+            this.radioC.Location = new System.Drawing.Point(900, 369);
             this.radioC.MouseBack = null;
             this.radioC.Name = "radioC";
             this.radioC.NormlBack = null;
@@ -323,7 +327,7 @@
             this.checkBoxD.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxD.DownBack = null;
             this.checkBoxD.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxD.Location = new System.Drawing.Point(738, 369);
+            this.checkBoxD.Location = new System.Drawing.Point(949, 369);
             this.checkBoxD.MouseBack = null;
             this.checkBoxD.Name = "checkBoxD";
             this.checkBoxD.NormlBack = null;
@@ -342,7 +346,7 @@
             this.radioB.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioB.DownBack = null;
             this.radioB.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioB.Location = new System.Drawing.Point(637, 369);
+            this.radioB.Location = new System.Drawing.Point(851, 369);
             this.radioB.MouseBack = null;
             this.radioB.Name = "radioB";
             this.radioB.NormlBack = null;
@@ -375,7 +379,7 @@
             this.radioA.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioA.DownBack = null;
             this.radioA.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioA.Location = new System.Drawing.Point(586, 369);
+            this.radioA.Location = new System.Drawing.Point(800, 369);
             this.radioA.MouseBack = null;
             this.radioA.Name = "radioA";
             this.radioA.NormlBack = null;
@@ -395,7 +399,7 @@
             this.checkBoxC.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxC.DownBack = null;
             this.checkBoxC.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxC.Location = new System.Drawing.Point(687, 369);
+            this.checkBoxC.Location = new System.Drawing.Point(899, 369);
             this.checkBoxC.MouseBack = null;
             this.checkBoxC.Name = "checkBoxC";
             this.checkBoxC.NormlBack = null;
@@ -413,7 +417,7 @@
             this.lblB.BackColor = System.Drawing.Color.Transparent;
             this.lblB.BorderColor = System.Drawing.Color.White;
             this.lblB.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.lblB.Location = new System.Drawing.Point(3, 203);
+            this.lblB.Location = new System.Drawing.Point(3, 216);
             this.lblB.Name = "lblB";
             this.lblB.Size = new System.Drawing.Size(111, 27);
             this.lblB.TabIndex = 12;
@@ -426,7 +430,7 @@
             this.checkBoxB.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxB.DownBack = null;
             this.checkBoxB.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxB.Location = new System.Drawing.Point(637, 369);
+            this.checkBoxB.Location = new System.Drawing.Point(850, 369);
             this.checkBoxB.MouseBack = null;
             this.checkBoxB.Name = "checkBoxB";
             this.checkBoxB.NormlBack = null;
@@ -444,7 +448,7 @@
             this.lblC.BackColor = System.Drawing.Color.Transparent;
             this.lblC.BorderColor = System.Drawing.Color.White;
             this.lblC.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.lblC.Location = new System.Drawing.Point(3, 251);
+            this.lblC.Location = new System.Drawing.Point(3, 264);
             this.lblC.Name = "lblC";
             this.lblC.Size = new System.Drawing.Size(111, 27);
             this.lblC.TabIndex = 11;
@@ -457,7 +461,7 @@
             this.checkBoxA.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxA.DownBack = null;
             this.checkBoxA.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxA.Location = new System.Drawing.Point(586, 369);
+            this.checkBoxA.Location = new System.Drawing.Point(799, 369);
             this.checkBoxA.MouseBack = null;
             this.checkBoxA.Name = "checkBoxA";
             this.checkBoxA.NormlBack = null;
@@ -475,7 +479,7 @@
             this.lblD.BackColor = System.Drawing.Color.Transparent;
             this.lblD.BorderColor = System.Drawing.Color.White;
             this.lblD.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.lblD.Location = new System.Drawing.Point(2, 297);
+            this.lblD.Location = new System.Drawing.Point(2, 310);
             this.lblD.Name = "lblD";
             this.lblD.Size = new System.Drawing.Size(111, 27);
             this.lblD.TabIndex = 10;
@@ -487,7 +491,7 @@
             this.lblA.BackColor = System.Drawing.Color.Transparent;
             this.lblA.BorderColor = System.Drawing.Color.White;
             this.lblA.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.lblA.Location = new System.Drawing.Point(3, 160);
+            this.lblA.Location = new System.Drawing.Point(3, 173);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(111, 27);
             this.lblA.TabIndex = 9;
@@ -505,30 +509,17 @@
             this.lblCurrentAnswer.TabIndex = 8;
             this.lblCurrentAnswer.Text = "您的选择：";
             // 
-            // topicNumber
-            // 
-            this.topicNumber.AutoSize = true;
-            this.topicNumber.BackColor = System.Drawing.Color.Transparent;
-            this.topicNumber.BorderColor = System.Drawing.Color.White;
-            this.topicNumber.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.topicNumber.Location = new System.Drawing.Point(4, 5);
-            this.topicNumber.Name = "topicNumber";
-            this.topicNumber.Size = new System.Drawing.Size(96, 22);
-            this.topicNumber.TabIndex = 2;
-            this.topicNumber.Text = "skinLabel5";
-            this.topicNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // skinPanel3
             // 
             this.skinPanel3.BackColor = System.Drawing.Color.Transparent;
             this.skinPanel3.Controls.Add(this.lblquestion);
             this.skinPanel3.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinPanel3.DownBack = null;
-            this.skinPanel3.Location = new System.Drawing.Point(3, 37);
+            this.skinPanel3.Location = new System.Drawing.Point(3, 3);
             this.skinPanel3.MouseBack = null;
             this.skinPanel3.Name = "skinPanel3";
             this.skinPanel3.NormlBack = null;
-            this.skinPanel3.Size = new System.Drawing.Size(884, 115);
+            this.skinPanel3.Size = new System.Drawing.Size(1084, 164);
             this.skinPanel3.TabIndex = 1;
             // 
             // lblquestion
@@ -537,25 +528,26 @@
             this.lblquestion.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Bold);
             this.lblquestion.Location = new System.Drawing.Point(0, 0);
             this.lblquestion.Name = "lblquestion";
-            this.lblquestion.Size = new System.Drawing.Size(884, 115);
+            this.lblquestion.Size = new System.Drawing.Size(1084, 164);
             this.lblquestion.TabIndex = 3;
             this.lblquestion.Text = "A";
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(608, 158);
+            this.pic.Location = new System.Drawing.Point(724, 173);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(262, 175);
+            this.pic.Size = new System.Drawing.Size(209, 165);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic.TabIndex = 6;
             this.pic.TabStop = false;
             // 
             // btnBack
             // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnBack.DownBack = null;
-            this.btnBack.Location = new System.Drawing.Point(727, 444);
+            this.btnBack.Location = new System.Drawing.Point(939, 446);
             this.btnBack.MouseBack = null;
             this.btnBack.Name = "btnBack";
             this.btnBack.NormlBack = null;
@@ -567,10 +559,11 @@
             // 
             // btnNext
             // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
             this.btnNext.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnNext.DownBack = null;
-            this.btnNext.Location = new System.Drawing.Point(823, 444);
+            this.btnNext.Location = new System.Drawing.Point(1032, 446);
             this.btnNext.MouseBack = null;
             this.btnNext.Name = "btnNext";
             this.btnNext.NormlBack = null;
@@ -582,10 +575,11 @@
             // 
             // btnCommit
             // 
+            this.btnCommit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCommit.BackColor = System.Drawing.Color.Transparent;
             this.btnCommit.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnCommit.DownBack = null;
-            this.btnCommit.Location = new System.Drawing.Point(1019, 444);
+            this.btnCommit.Location = new System.Drawing.Point(1216, 446);
             this.btnCommit.MouseBack = null;
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.NormlBack = null;
@@ -597,13 +591,16 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 480);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 3, 3, 3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1096, 236);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 15, 3, 3);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1304, 236);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // timerExam
@@ -613,12 +610,13 @@
             // 
             // checkBoxIsNext
             // 
+            this.checkBoxIsNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxIsNext.AutoSize = true;
             this.checkBoxIsNext.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxIsNext.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxIsNext.DownBack = null;
             this.checkBoxIsNext.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBoxIsNext.Location = new System.Drawing.Point(586, 449);
+            this.checkBoxIsNext.Location = new System.Drawing.Point(798, 451);
             this.checkBoxIsNext.MouseBack = null;
             this.checkBoxIsNext.Name = "checkBoxIsNext";
             this.checkBoxIsNext.NormlBack = null;
@@ -633,10 +631,11 @@
             // 
             // btnCollect
             // 
+            this.btnCollect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCollect.BackColor = System.Drawing.Color.Transparent;
             this.btnCollect.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnCollect.DownBack = null;
-            this.btnCollect.Location = new System.Drawing.Point(922, 444);
+            this.btnCollect.Location = new System.Drawing.Point(1124, 446);
             this.btnCollect.MouseBack = null;
             this.btnCollect.Name = "btnCollect";
             this.btnCollect.NormlBack = null;
@@ -646,12 +645,21 @@
             this.btnCollect.UseVisualStyleBackColor = false;
             this.btnCollect.Click += new System.EventHandler(this.btnCollect_Click);
             // 
+            // picMax
+            // 
+            this.picMax.Location = new System.Drawing.Point(228, 170);
+            this.picMax.Name = "picMax";
+            this.picMax.Size = new System.Drawing.Size(418, 233);
+            this.picMax.TabIndex = 20;
+            this.picMax.TabStop = false;
+            this.picMax.Visible = false;
+            // 
             // PracticeTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanResize = false;
-            this.ClientSize = new System.Drawing.Size(1112, 724);
+            this.ClientSize = new System.Drawing.Size(1312, 724);
             this.Controls.Add(this.btnCollect);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.checkBoxIsNext);
@@ -660,9 +668,11 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCommit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "PracticeTest";
             this.Text = "四川省机动车教练员从业考试操作系统-模拟考试";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PracticeTest_FormClosing);
             this.Load += new System.EventHandler(this.PracticeTest_Load);
             this.skinPanel1.ResumeLayout(false);
@@ -671,6 +681,7 @@
             this.skinPanel2.PerformLayout();
             this.skinPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -706,7 +717,6 @@
         private CCWin.SkinControl.SkinButton btnCollect;
         private CCWin.SkinControl.SkinLabel skinLabel4;
         private CCWin.SkinControl.SkinLabel lblresult;
-        private CCWin.SkinControl.SkinLabel topicNumber;
         private CCWin.SkinControl.SkinLabel lblTrue;
         private System.Windows.Forms.Label lblquestion;
         private CCWin.SkinControl.SkinLabel lblCurrentAnswer;
@@ -717,6 +727,7 @@
         private CCWin.SkinControl.SkinLabel skinLabel3;
         private CCWin.SkinControl.SkinButton btnTrue;
         private CCWin.SkinControl.SkinLabel lblInfo;
+        private System.Windows.Forms.PictureBox picMax;
 
 
     }

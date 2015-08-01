@@ -124,14 +124,36 @@ namespace DriverExam
 
             }
 
-            this.lblTopicContent.Text = dt.Rows[index]["question"].ToString();
+            string section = new Tool().ExecuteSqlQuery("select section from ExamSection where id = '" + dt.Rows[index]["section"].ToString() + "'").Rows[0]["section"].ToString();
+            this.lblTopicContent.Text ="("+section+")"+ dt.Rows[index]["question"].ToString();
         }
 
         //取出数据
         private void LoadDefault()
         {
+            pic.MouseHover += new System.EventHandler(this.pictureBoxMouseOn);
+            pic.MouseLeave += new System.EventHandler(this.pictureBoxMouseOut);
             this.TopMost = true;
             dt = new Tool().ExecuteSqlQuery(this.sqlString);
+        }
+
+        private void pictureBoxMouseOut(object sender, EventArgs e)
+        {
+            if (pic.Image != null)
+            {
+                picMax.Visible = false;
+            }
+
+        }
+
+        private void pictureBoxMouseOn(object sender, EventArgs e)
+        {
+            if (pic.Image != null)
+            {
+                picMax.Image = pic.Image;
+                picMax.Visible = true;
+                
+            }
         }
 
         private void Practice_Load(object sender, EventArgs e)

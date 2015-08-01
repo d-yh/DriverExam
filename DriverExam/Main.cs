@@ -169,5 +169,11 @@ namespace DriverExam
         {
             new ExamSkillManage().Show();
         }
+
+        private void 清空题库ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Tool().ExecNonSQLQuery("delete ExamSubject");
+            MessageBoxEx.Show("题库已经清空");
+        }
     }
 }

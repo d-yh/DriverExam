@@ -65,6 +65,7 @@
             this.手动添加题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.过关秘籍管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.清空题库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinToolStrip1.SuspendLayout();
             this.skinPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -254,21 +255,21 @@
             // MenuItemBtnMore_order
             // 
             this.MenuItemBtnMore_order.Name = "MenuItemBtnMore_order";
-            this.MenuItemBtnMore_order.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_order.Size = new System.Drawing.Size(124, 22);
             this.MenuItemBtnMore_order.Text = "顺序练习";
             this.MenuItemBtnMore_order.Click += new System.EventHandler(this.MenuItemBtnMore_order_Click);
             // 
             // MenuItemBtnMore_random
             // 
             this.MenuItemBtnMore_random.Name = "MenuItemBtnMore_random";
-            this.MenuItemBtnMore_random.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_random.Size = new System.Drawing.Size(124, 22);
             this.MenuItemBtnMore_random.Text = "随机练习";
             this.MenuItemBtnMore_random.Click += new System.EventHandler(this.MenuItemBtnMore_random_Click);
             // 
             // MenuItemBtnMore_difficult
             // 
             this.MenuItemBtnMore_difficult.Name = "MenuItemBtnMore_difficult";
-            this.MenuItemBtnMore_difficult.Size = new System.Drawing.Size(152, 22);
+            this.MenuItemBtnMore_difficult.Size = new System.Drawing.Size(124, 22);
             this.MenuItemBtnMore_difficult.Text = "难题练习";
             this.MenuItemBtnMore_difficult.Click += new System.EventHandler(this.MenuItemBtnMore_difficult_Click);
             // 
@@ -442,7 +443,7 @@
             // 用户管理ToolStripMenuItem
             // 
             this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
-            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.用户管理ToolStripMenuItem.Text = "用户管理";
             this.用户管理ToolStripMenuItem.Click += new System.EventHandler(this.用户管理ToolStripMenuItem_Click);
             // 
@@ -450,9 +451,10 @@
             // 
             this.题库管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excel导入题库ToolStripMenuItem,
-            this.手动添加题库ToolStripMenuItem});
+            this.手动添加题库ToolStripMenuItem,
+            this.清空题库ToolStripMenuItem});
             this.题库管理ToolStripMenuItem.Name = "题库管理ToolStripMenuItem";
-            this.题库管理ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.题库管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.题库管理ToolStripMenuItem.Text = "题库管理";
             // 
             // excel导入题库ToolStripMenuItem
@@ -472,7 +474,7 @@
             // 系统数据ToolStripMenuItem
             // 
             this.系统数据ToolStripMenuItem.Name = "系统数据ToolStripMenuItem";
-            this.系统数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.系统数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.系统数据ToolStripMenuItem.Text = "章节管理";
             this.系统数据ToolStripMenuItem.Click += new System.EventHandler(this.系统数据ToolStripMenuItem_Click);
             // 
@@ -482,6 +484,13 @@
             this.过关秘籍管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.过关秘籍管理ToolStripMenuItem.Text = "过关秘籍管理";
             this.过关秘籍管理ToolStripMenuItem.Click += new System.EventHandler(this.过关秘籍管理ToolStripMenuItem_Click);
+            // 
+            // 清空题库ToolStripMenuItem
+            // 
+            this.清空题库ToolStripMenuItem.Name = "清空题库ToolStripMenuItem";
+            this.清空题库ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.清空题库ToolStripMenuItem.Text = "清空题库";
+            this.清空题库ToolStripMenuItem.Click += new System.EventHandler(this.清空题库ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -550,6 +559,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItemBtnMore_random;
         private System.Windows.Forms.ToolStripMenuItem MenuItemBtnMore_difficult;
         private System.Windows.Forms.ToolStripMenuItem 过关秘籍管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 清空题库ToolStripMenuItem;
 
     }
 }

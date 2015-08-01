@@ -53,7 +53,7 @@ namespace DriverExam
             }
             btnNext.Enabled = index < 99;
             clearSelected();
-            topicNumber.Text = "" + (index+1);
+            //topicNumber.Text = "" + (index+1);
             if (isEnd)
             {
                 btnBack.Enabled = false;
@@ -129,11 +129,32 @@ namespace DriverExam
             this.lblB.Text = "B." + dt.Rows[0]["option_b"].ToString().Replace("B", "");
             this.lblC.Text = "C." + dt.Rows[0]["option_c"].ToString().Replace("C", "");
             this.lblD.Text = "D." + dt.Rows[0]["option_d"].ToString().Replace("D", "");
-            lblquestion.Text = "(" + dt.Rows[0]["type"].ToString()+")" + dt.Rows[0]["question"].ToString();
+            lblquestion.Text = (index+1)+"."+"(" + dt.Rows[0]["type"].ToString()+")" + dt.Rows[0]["question"].ToString();
+        }
+
+        private void pictureBoxMouseOut(object sender, EventArgs e)
+        {
+            if (pic.Image != null)
+            {
+                picMax.Visible = false;
+            }
+
+        }
+
+        private void pictureBoxMouseOn(object sender, EventArgs e)
+        {
+            if (pic.Image != null)
+            {
+                picMax.Image = pic.Image;
+                picMax.Visible = true;
+
+            }
         }
 
         private void init()
         {
+            pic.MouseHover += new System.EventHandler(this.pictureBoxMouseOn);
+            pic.MouseLeave += new System.EventHandler(this.pictureBoxMouseOut);
             string sqlString = "select * from ExamUser where id= '"+Login.USERID+"'";
             DataTable dtable = new Tool().ExecuteSqlQuery(sqlString);
             lblname.Text = dtable.Rows[0]["real_name"].ToString();
@@ -144,13 +165,17 @@ namespace DriverExam
                 Label lbl = new Label();
                 lbl.Text = "" + (i + 1);
                 lbl.Name = "lbl" + (i + 1);
+                lbl.Width = 60;
+                lbl.Height = 40;
                 flowLayoutPanel1.Controls.Add(lbl);
                 totalLbl[i] = lbl;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 lbl.Click += new System.EventHandler(this.lbl_Click);
-
+                this.MaximumSize = new System.Drawing.Size(this.Width, this.Height);
+                this.MinimumSize = new System.Drawing.Size(this.Width, this.Height);
             }
+
             timerExam.Start();
         }
 
