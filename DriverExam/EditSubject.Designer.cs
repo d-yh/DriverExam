@@ -172,9 +172,9 @@
             this.skinLabel10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel10.Location = new System.Drawing.Point(287, 184);
             this.skinLabel10.Name = "skinLabel10";
-            this.skinLabel10.Size = new System.Drawing.Size(148, 17);
+            this.skinLabel10.Size = new System.Drawing.Size(68, 17);
             this.skinLabel10.TabIndex = 9;
-            this.skinLabel10.Text = "图片名称(无图片可不填)：";
+            this.skinLabel10.Text = "图片名称：";
             // 
             // cbSectionType
             // 
@@ -307,9 +307,9 @@
             // 
             // txtpicName
             // 
-            this.txtpicName.Location = new System.Drawing.Point(438, 184);
+            this.txtpicName.Location = new System.Drawing.Point(381, 184);
             this.txtpicName.Name = "txtpicName";
-            this.txtpicName.Size = new System.Drawing.Size(218, 21);
+            this.txtpicName.Size = new System.Drawing.Size(275, 21);
             this.txtpicName.TabIndex = 19;
             this.txtpicName.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtpicName.WaterText = "";
@@ -335,9 +335,9 @@
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(289, 208);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 17);
+            this.label1.Size = new System.Drawing.Size(372, 17);
             this.label1.TabIndex = 22;
-            this.label1.Text = "注意事项：请将同名的图片以jpg格式格式放入安装目录下pic文件夹";
+            this.label1.Text = "注意事项：请将同名的图片以png格式格式放入安装目录下pic文件夹";
             // 
             // skinLabel11
             // 

@@ -43,6 +43,8 @@
             this.dgRuleTable = new CCWin.SkinControl.SkinDataGridView();
             this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
             this.txtSearchSection = new CCWin.SkinControl.SkinWaterTextBox();
+            this.txtType = new CCWin.SkinControl.SkinWaterTextBox();
+            this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
             this.skinToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgRuleTable)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             this.skinToolStrip1.Location = new System.Drawing.Point(4, 28);
             this.skinToolStrip1.Name = "skinToolStrip1";
             this.skinToolStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinToolStrip1.Size = new System.Drawing.Size(722, 40);
+            this.skinToolStrip1.Size = new System.Drawing.Size(895, 40);
             this.skinToolStrip1.SkinAllColor = true;
             this.skinToolStrip1.TabIndex = 5;
             this.skinToolStrip1.Text = "skinToolStrip1";
@@ -207,7 +209,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgRuleTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgRuleTable.RowTemplate.Height = 23;
-            this.dgRuleTable.Size = new System.Drawing.Size(722, 379);
+            this.dgRuleTable.Size = new System.Drawing.Size(895, 379);
             this.dgRuleTable.TabIndex = 10;
             this.dgRuleTable.TitleBack = null;
             this.dgRuleTable.TitleBackColorBegin = System.Drawing.Color.White;
@@ -219,7 +221,7 @@
             this.skinLabel2.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel2.BorderColor = System.Drawing.Color.White;
             this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel2.Location = new System.Drawing.Point(425, 41);
+            this.skinLabel2.Location = new System.Drawing.Point(404, 41);
             this.skinLabel2.Name = "skinLabel2";
             this.skinLabel2.Size = new System.Drawing.Size(88, 17);
             this.skinLabel2.TabIndex = 11;
@@ -227,19 +229,42 @@
             // 
             // txtSearchSection
             // 
-            this.txtSearchSection.Location = new System.Drawing.Point(529, 41);
+            this.txtSearchSection.Location = new System.Drawing.Point(508, 41);
             this.txtSearchSection.Name = "txtSearchSection";
             this.txtSearchSection.Size = new System.Drawing.Size(128, 21);
             this.txtSearchSection.TabIndex = 12;
             this.txtSearchSection.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtSearchSection.WaterText = "";
             // 
+            // txtType
+            // 
+            this.txtType.Location = new System.Drawing.Point(736, 41);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(138, 21);
+            this.txtType.TabIndex = 14;
+            this.txtType.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.txtType.WaterText = "";
+            // 
+            // skinLabel3
+            // 
+            this.skinLabel3.AutoSize = true;
+            this.skinLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel3.BorderColor = System.Drawing.Color.White;
+            this.skinLabel3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel3.Location = new System.Drawing.Point(642, 41);
+            this.skinLabel3.Name = "skinLabel3";
+            this.skinLabel3.Size = new System.Drawing.Size(88, 17);
+            this.skinLabel3.TabIndex = 13;
+            this.skinLabel3.Text = "模糊查询(类型)";
+            // 
             // AddSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanResize = false;
-            this.ClientSize = new System.Drawing.Size(730, 451);
+            this.ClientSize = new System.Drawing.Size(903, 451);
+            this.Controls.Add(this.txtType);
+            this.Controls.Add(this.skinLabel3);
             this.Controls.Add(this.txtSearchSection);
             this.Controls.Add(this.skinLabel2);
             this.Controls.Add(this.dgRuleTable);
@@ -270,5 +295,7 @@
         private CCWin.SkinControl.SkinDataGridView dgRuleTable;
         private CCWin.SkinControl.SkinLabel skinLabel2;
         private CCWin.SkinControl.SkinWaterTextBox txtSearchSection;
+        private CCWin.SkinControl.SkinWaterTextBox txtType;
+        private CCWin.SkinControl.SkinLabel skinLabel3;
     }
 }

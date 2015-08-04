@@ -165,8 +165,8 @@ namespace DriverExam
                 Label lbl = new Label();
                 lbl.Text = "" + (i + 1);
                 lbl.Name = "lbl" + (i + 1);
-                lbl.Width = 60;
-                lbl.Height = 40;
+                lbl.Width = 45;
+                lbl.Height = 30;
                 flowLayoutPanel1.Controls.Add(lbl);
                 totalLbl[i] = lbl;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
@@ -447,6 +447,7 @@ namespace DriverExam
             string sqlString = "";
             try
             {
+                List<int> saveNumber = new List<int>();//保存使用过的图片number
                 List<string> saveId = new List<string>();//保存已经用过的Id
                 DataTable data;
                 string newSectionId = new Tool().ExecuteSqlQuery("select id from ExamSection where section = '新规新题'").Rows[0]["id"].ToString();
@@ -454,7 +455,7 @@ namespace DriverExam
                 string[] sevenSectionId = new string[7];
                 string[] eightSectionId = new string[8];
 
-                data = new Tool().ExecuteSqlQuery("select id from ExamSection");
+                data = new Tool().ExecuteSqlQuery("select id from ExamSection where section <> '新规新题'");
                 List<string> allSectionId = new List<string>();
 
                 for (int i = 0; i < data.Rows.Count; i++)
@@ -483,7 +484,7 @@ namespace DriverExam
 
                 #region 装载判断
                 //先获取难题中的两道图片题
-                sqlString = "select * from ExamSubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='判断题'";
+                sqlString = "select * from ExamSubject where problem = '难题强化' and not picture_name is null and picture_name <>'' and type='判断题' and section <>'"+newSectionId+"'";
                 data = new Tool().ExecuteSqlQuery(sqlString);
                 List<int> list = new List<int>();
                 list = getRandom(data, 2);
@@ -491,21 +492,23 @@ namespace DriverExam
                 for (int i = 0; i < list.Count; i++)
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
+                    saveNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
                     saveId.Add(data.Rows[list[i]]["section"].ToString());
                 }
-                //获取剩下的14道判断难题
+                //获取剩下的13道判断难题
                 allSectionId = getCurrentId(allSectionId, saveId);
                 
               
-                for (int i = 0; i < 14; i++)
+                for (int i = 0; i < 13; i++)
                 {                    
-                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='判断题' and section='" + allSectionId[i] + "'";
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and type='判断题' and section='" + allSectionId[i] + "' and random_number <>'"+saveNumber[0]+"' and random_number <> '"+saveNumber[1]+"'";
                     data = new Tool().ExecuteSqlQuery(sqlString);
                     list = getRandom(data, 1);
                     listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
                 //判断难题装载完毕
-               
+
+                saveNumber.Clear();
                 //装载判断 各一题
                 for (int i = 0; i < sixSectionId.Length; i++)
                 {
@@ -515,10 +518,10 @@ namespace DriverExam
                     listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
 
-                //装载8道新题新规
+                //装载9道新题新规
                 sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '判断题' and b.id = '" + newSectionId + "'";
                 data = new Tool().ExecuteSqlQuery(sqlString);
-                list = getRandom(data, 8);
+                list = getRandom(data, 9);
 
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -539,6 +542,7 @@ namespace DriverExam
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
                     saveId.Add(data.Rows[list[i]]["section"].ToString());
+                    saveNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
                 }
 
                 allSectionId = getCurrentId(allSectionId, saveId);
@@ -546,12 +550,13 @@ namespace DriverExam
                 
                 for (int i = 0; i < 11; i++)
                 {
-                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='单项选择题' and section='" + allSectionId[i] + "'";
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and type='单项选择题' and section='" + allSectionId[i] + "' and random_number <>'"+saveNumber[0]+"' and random_number <> '"+saveNumber[1]+"' and random_number <> '"+saveNumber[2]+"' and random_number <> '"+saveNumber[3]+"' and random_number <> '"+saveNumber[4]+"'";
                     data = new Tool().ExecuteSqlQuery(sqlString);
                     list = getRandom(data, 1);
                     listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                 }
 
+                saveNumber.Clear();
                 //装载各章节各两题
 
                 for (int i = 0; i < sevenSectionId.Length; i++)
@@ -579,6 +584,7 @@ namespace DriverExam
                 {
                     listNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
                     saveId.Add(data.Rows[list[i]]["section"].ToString());
+                    saveNumber.Add(Convert.ToInt16(data.Rows[list[i]]["random_number"].ToString()));
                 }
 
                 
@@ -586,7 +592,7 @@ namespace DriverExam
                 allSectionId = getCurrentId(allSectionId, saveId);
                 for (int i = 0; i < 13; i++)
                 {
-                    sqlString = "select * from ExamSubject where problem = '难题强化' and (picture_name is null or picture_name ='') and type='多项选择题' and section = '"+allSectionId[i]+"'";
+                    sqlString = "select * from ExamSubject where problem = '难题强化' and type='多项选择题' and section = '"+allSectionId[i]+"' and random_number <> '"+saveNumber[0]+"' and random_number <> '"+saveNumber[1]+"' and random_number <> '"+saveNumber[2]+"'";
                     data = new Tool().ExecuteSqlQuery(sqlString);
                     list = getRandom(data, 1);
                     listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
@@ -619,7 +625,7 @@ namespace DriverExam
             }
             catch (Exception e)
             {
-                Console.WriteLine(sqlString);
+                //Console.WriteLine(sqlString);
                 MessageBox.Show(e.Message.ToString());
             }           
         }
