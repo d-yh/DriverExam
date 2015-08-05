@@ -175,5 +175,17 @@ namespace DriverExam
             new Tool().ExecNonSQLQuery("delete ExamSubject");
             MessageBoxEx.Show("题库已经清空");
         }
+
+        private void 清除我的收藏ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Tool().ExecNonSQLQuery("delete ExamCollet where user_id = '" + Login.USERID + "'");
+            MessageBoxEx.Show("我的收藏已经清空");
+        }
+
+        private void 清空我的错题ToolStripMenuItem_Click(object sender, EventArgs e)
+        {          
+            new Tool().ExecNonSQLQuery("delete ExamErrorSubject where user_id = '" + Login.USERID + "'");
+            MessageBoxEx.Show("我的错题已经清空");
+        }
     }
 }

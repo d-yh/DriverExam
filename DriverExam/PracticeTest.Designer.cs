@@ -236,7 +236,7 @@
             this.skinPanel2.MouseBack = null;
             this.skinPanel2.Name = "skinPanel2";
             this.skinPanel2.NormlBack = null;
-            this.skinPanel2.Size = new System.Drawing.Size(1090, 459);
+            this.skinPanel2.Size = new System.Drawing.Size(998, 459);
             this.skinPanel2.TabIndex = 1;
             // 
             // picMax
@@ -256,7 +256,7 @@
             this.lblInfo.BorderColor = System.Drawing.Color.White;
             this.lblInfo.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.ForeColor = System.Drawing.Color.Red;
-            this.lblInfo.Location = new System.Drawing.Point(721, 392);
+            this.lblInfo.Location = new System.Drawing.Point(620, 410);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(212, 17);
             this.lblInfo.TabIndex = 19;
@@ -268,7 +268,7 @@
             this.btnTrue.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnTrue.DownBack = null;
             this.btnTrue.Font = new System.Drawing.Font("宋体", 9F);
-            this.btnTrue.Location = new System.Drawing.Point(1000, 414);
+            this.btnTrue.Location = new System.Drawing.Point(900, 425);
             this.btnTrue.MouseBack = null;
             this.btnTrue.Name = "btnTrue";
             this.btnTrue.NormlBack = null;
@@ -285,7 +285,7 @@
             this.radioD.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioD.DownBack = null;
             this.radioD.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioD.Location = new System.Drawing.Point(949, 414);
+            this.radioD.Location = new System.Drawing.Point(849, 429);
             this.radioD.MouseBack = null;
             this.radioD.Name = "radioD";
             this.radioD.NormlBack = null;
@@ -304,7 +304,7 @@
             this.skinLabel3.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel3.BorderColor = System.Drawing.Color.White;
             this.skinLabel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel3.Location = new System.Drawing.Point(719, 419);
+            this.skinLabel3.Location = new System.Drawing.Point(619, 430);
             this.skinLabel3.Name = "skinLabel3";
             this.skinLabel3.Size = new System.Drawing.Size(74, 22);
             this.skinLabel3.TabIndex = 17;
@@ -317,7 +317,7 @@
             this.radioC.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioC.DownBack = null;
             this.radioC.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioC.Location = new System.Drawing.Point(899, 414);
+            this.radioC.Location = new System.Drawing.Point(799, 429);
             this.radioC.MouseBack = null;
             this.radioC.Name = "radioC";
             this.radioC.NormlBack = null;
@@ -337,7 +337,7 @@
             this.checkBoxD.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxD.DownBack = null;
             this.checkBoxD.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxD.Location = new System.Drawing.Point(949, 411);
+            this.checkBoxD.Location = new System.Drawing.Point(849, 430);
             this.checkBoxD.MouseBack = null;
             this.checkBoxD.Name = "checkBoxD";
             this.checkBoxD.NormlBack = null;
@@ -356,7 +356,7 @@
             this.radioB.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioB.DownBack = null;
             this.radioB.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioB.Location = new System.Drawing.Point(850, 414);
+            this.radioB.Location = new System.Drawing.Point(750, 429);
             this.radioB.MouseBack = null;
             this.radioB.Name = "radioB";
             this.radioB.NormlBack = null;
@@ -389,7 +389,7 @@
             this.radioA.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.radioA.DownBack = null;
             this.radioA.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.radioA.Location = new System.Drawing.Point(799, 414);
+            this.radioA.Location = new System.Drawing.Point(699, 429);
             this.radioA.MouseBack = null;
             this.radioA.Name = "radioA";
             this.radioA.NormlBack = null;
@@ -409,7 +409,7 @@
             this.checkBoxC.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxC.DownBack = null;
             this.checkBoxC.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxC.Location = new System.Drawing.Point(899, 411);
+            this.checkBoxC.Location = new System.Drawing.Point(799, 430);
             this.checkBoxC.MouseBack = null;
             this.checkBoxC.Name = "checkBoxC";
             this.checkBoxC.NormlBack = null;
@@ -440,7 +440,7 @@
             this.checkBoxB.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxB.DownBack = null;
             this.checkBoxB.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxB.Location = new System.Drawing.Point(850, 411);
+            this.checkBoxB.Location = new System.Drawing.Point(750, 430);
             this.checkBoxB.MouseBack = null;
             this.checkBoxB.Name = "checkBoxB";
             this.checkBoxB.NormlBack = null;
@@ -471,7 +471,7 @@
             this.checkBoxA.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxA.DownBack = null;
             this.checkBoxA.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.checkBoxA.Location = new System.Drawing.Point(799, 411);
+            this.checkBoxA.Location = new System.Drawing.Point(699, 430);
             this.checkBoxA.MouseBack = null;
             this.checkBoxA.Name = "checkBoxA";
             this.checkBoxA.NormlBack = null;
@@ -529,7 +529,7 @@
             this.skinPanel3.MouseBack = null;
             this.skinPanel3.Name = "skinPanel3";
             this.skinPanel3.NormlBack = null;
-            this.skinPanel3.Size = new System.Drawing.Size(1084, 209);
+            this.skinPanel3.Size = new System.Drawing.Size(992, 209);
             this.skinPanel3.TabIndex = 1;
             // 
             // lblquestion
@@ -538,13 +538,13 @@
             this.lblquestion.Font = new System.Drawing.Font("宋体", 16F, System.Drawing.FontStyle.Bold);
             this.lblquestion.Location = new System.Drawing.Point(0, 0);
             this.lblquestion.Name = "lblquestion";
-            this.lblquestion.Size = new System.Drawing.Size(1084, 209);
+            this.lblquestion.Size = new System.Drawing.Size(992, 209);
             this.lblquestion.TabIndex = 3;
             this.lblquestion.Text = "A";
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(723, 218);
+            this.pic.Location = new System.Drawing.Point(623, 244);
             this.pic.Name = "pic";
             this.pic.Size = new System.Drawing.Size(209, 165);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -557,7 +557,7 @@
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnBack.DownBack = null;
-            this.btnBack.Location = new System.Drawing.Point(939, 497);
+            this.btnBack.Location = new System.Drawing.Point(822, 497);
             this.btnBack.MouseBack = null;
             this.btnBack.Name = "btnBack";
             this.btnBack.NormlBack = null;
@@ -573,7 +573,7 @@
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
             this.btnNext.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnNext.DownBack = null;
-            this.btnNext.Location = new System.Drawing.Point(1032, 497);
+            this.btnNext.Location = new System.Drawing.Point(922, 497);
             this.btnNext.MouseBack = null;
             this.btnNext.Name = "btnNext";
             this.btnNext.NormlBack = null;
@@ -589,7 +589,7 @@
             this.btnCommit.BackColor = System.Drawing.Color.Transparent;
             this.btnCommit.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnCommit.DownBack = null;
-            this.btnCommit.Location = new System.Drawing.Point(1216, 497);
+            this.btnCommit.Location = new System.Drawing.Point(1115, 497);
             this.btnCommit.MouseBack = null;
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.NormlBack = null;
@@ -601,16 +601,13 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 536);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 15, 3, 3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1304, 144);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1205, 171);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // timerExam
@@ -626,7 +623,7 @@
             this.checkBoxIsNext.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.checkBoxIsNext.DownBack = null;
             this.checkBoxIsNext.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBoxIsNext.Location = new System.Drawing.Point(798, 502);
+            this.checkBoxIsNext.Location = new System.Drawing.Point(672, 502);
             this.checkBoxIsNext.MouseBack = null;
             this.checkBoxIsNext.Name = "checkBoxIsNext";
             this.checkBoxIsNext.NormlBack = null;
@@ -645,7 +642,7 @@
             this.btnCollect.BackColor = System.Drawing.Color.Transparent;
             this.btnCollect.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnCollect.DownBack = null;
-            this.btnCollect.Location = new System.Drawing.Point(1124, 497);
+            this.btnCollect.Location = new System.Drawing.Point(1023, 497);
             this.btnCollect.MouseBack = null;
             this.btnCollect.Name = "btnCollect";
             this.btnCollect.NormlBack = null;
@@ -660,7 +657,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CanResize = false;
-            this.ClientSize = new System.Drawing.Size(1312, 688);
+            this.ClientSize = new System.Drawing.Size(1220, 715);
             this.Controls.Add(this.btnCollect);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.checkBoxIsNext);

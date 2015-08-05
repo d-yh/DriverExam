@@ -165,7 +165,7 @@ namespace DriverExam
                 Label lbl = new Label();
                 lbl.Text = "" + (i + 1);
                 lbl.Name = "lbl" + (i + 1);
-                lbl.Width = 45;
+                lbl.Width = 40;
                 lbl.Height = 30;
                 flowLayoutPanel1.Controls.Add(lbl);
                 totalLbl[i] = lbl;
