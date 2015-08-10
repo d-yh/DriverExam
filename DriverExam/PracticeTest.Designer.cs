@@ -51,12 +51,12 @@
             this.lblTrue = new CCWin.SkinControl.SkinLabel();
             this.radioA = new CCWin.SkinControl.SkinRadioButton();
             this.checkBoxC = new CCWin.SkinControl.SkinCheckBox();
-            this.lblB = new CCWin.SkinControl.SkinLabel();
+            this.lblB = new System.Windows.Forms.Label();
             this.checkBoxB = new CCWin.SkinControl.SkinCheckBox();
-            this.lblC = new CCWin.SkinControl.SkinLabel();
+            this.lblC = new System.Windows.Forms.Label();
             this.checkBoxA = new CCWin.SkinControl.SkinCheckBox();
-            this.lblD = new CCWin.SkinControl.SkinLabel();
-            this.lblA = new CCWin.SkinControl.SkinLabel();
+            this.lblD = new System.Windows.Forms.Label();
+            this.lblA = new System.Windows.Forms.Label();
             this.lblCurrentAnswer = new CCWin.SkinControl.SkinLabel();
             this.skinPanel3 = new CCWin.SkinControl.SkinPanel();
             this.lblquestion = new System.Windows.Forms.Label();
@@ -241,7 +241,7 @@
             // 
             // picMax
             // 
-            this.picMax.Location = new System.Drawing.Point(192, 254);
+            this.picMax.Location = new System.Drawing.Point(195, 218);
             this.picMax.Name = "picMax";
             this.picMax.Size = new System.Drawing.Size(418, 202);
             this.picMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -256,7 +256,7 @@
             this.lblInfo.BorderColor = System.Drawing.Color.White;
             this.lblInfo.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInfo.ForeColor = System.Drawing.Color.Red;
-            this.lblInfo.Location = new System.Drawing.Point(620, 410);
+            this.lblInfo.Location = new System.Drawing.Point(774, 405);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(212, 17);
             this.lblInfo.TabIndex = 19;
@@ -425,7 +425,6 @@
             // 
             this.lblB.AutoSize = true;
             this.lblB.BackColor = System.Drawing.Color.Transparent;
-            this.lblB.BorderColor = System.Drawing.Color.White;
             this.lblB.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.lblB.Location = new System.Drawing.Point(2, 262);
             this.lblB.Name = "lblB";
@@ -456,7 +455,6 @@
             // 
             this.lblC.AutoSize = true;
             this.lblC.BackColor = System.Drawing.Color.Transparent;
-            this.lblC.BorderColor = System.Drawing.Color.White;
             this.lblC.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.lblC.Location = new System.Drawing.Point(2, 310);
             this.lblC.Name = "lblC";
@@ -487,7 +485,6 @@
             // 
             this.lblD.AutoSize = true;
             this.lblD.BackColor = System.Drawing.Color.Transparent;
-            this.lblD.BorderColor = System.Drawing.Color.White;
             this.lblD.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.lblD.Location = new System.Drawing.Point(1, 356);
             this.lblD.Name = "lblD";
@@ -499,7 +496,6 @@
             // 
             this.lblA.AutoSize = true;
             this.lblA.BackColor = System.Drawing.Color.Transparent;
-            this.lblA.BorderColor = System.Drawing.Color.White;
             this.lblA.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.lblA.Location = new System.Drawing.Point(2, 219);
             this.lblA.Name = "lblA";
@@ -544,7 +540,7 @@
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(623, 244);
+            this.pic.Location = new System.Drawing.Point(777, 237);
             this.pic.Name = "pic";
             this.pic.Size = new System.Drawing.Size(209, 165);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -717,10 +713,10 @@
         private CCWin.SkinControl.SkinLabel lblTrue;
         private System.Windows.Forms.Label lblquestion;
         private CCWin.SkinControl.SkinLabel lblCurrentAnswer;
-        private CCWin.SkinControl.SkinLabel lblA;
-        private CCWin.SkinControl.SkinLabel lblB;
-        private CCWin.SkinControl.SkinLabel lblC;
-        private CCWin.SkinControl.SkinLabel lblD;
+        private System.Windows.Forms.Label lblA;
+        private System.Windows.Forms.Label lblB;
+        private System.Windows.Forms.Label lblC;
+        private System.Windows.Forms.Label lblD;
         private CCWin.SkinControl.SkinLabel skinLabel3;
         private CCWin.SkinControl.SkinButton btnTrue;
         private CCWin.SkinControl.SkinLabel lblInfo;

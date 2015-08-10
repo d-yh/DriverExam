@@ -135,11 +135,7 @@ namespace DriverExam
 
         private void pictureBoxMouseOut(object sender, EventArgs e)
         {
-            if (pic.Image != null)
-            {
-                picMax.Visible = false;
-            }
-
+             picMax.Visible = false;
         }
 
         private void pictureBoxMouseOn(object sender, EventArgs e)
@@ -519,15 +515,15 @@ namespace DriverExam
                     sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '判断题' and b.id = '"+sixSectionId[i]+"' and a.problem ='难题强化'";
                     data = new Tool().ExecuteSqlQuery(sqlString);
                     list = getRandom(data, 1);
+                    int a = Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString());
 
-                    listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
-                    for (int j = 0; j < listNumber.Count; j++)
+                    if (!listNumber.Contains(a))
                     {
-                        if (listNumber.Contains(j))
-                        {
-                            listNumber.RemoveAt(listNumber.Count-1);
-                            i--;
-                        }
+                        listNumber.Add(a);
+                    }
+                    else
+                    {
+                        i--;
                     }
                 }
 
@@ -579,15 +575,17 @@ namespace DriverExam
                         sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '单项选择题' and b.id = '" + sevenSectionId[i] + "' and a.problem = '难题强化'";
                         data = new Tool().ExecuteSqlQuery(sqlString);
                         list = getRandom(data, 1);
-                        listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
-                        for (int k = 0; k < listNumber.Count; k++)
+
+
+                        if (!listNumber.Contains(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString())))
                         {
-                            if (listNumber.Contains(k))
-                            {
-                                listNumber.RemoveAt(listNumber.Count - 1);
-                                j--;
-                            }
+                            listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
                         }
+                        else
+                        {
+                            j--;
+                        }
+                        
                     }
                 }
                 #endregion
@@ -627,14 +625,13 @@ namespace DriverExam
                         sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '多项选择题' and b.id = '" + eightSectionId[i] + "' and a.problem = '难题强化' ";
                         data = new Tool().ExecuteSqlQuery(sqlString);
                         list = getRandom(data, 1);
-                        listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
-                        for (int k = 0; k < listNumber.Count; k++)
+                        if (!listNumber.Contains(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString())))
                         {
-                            if (listNumber.Contains(k))
-                            {
-                                listNumber.RemoveAt(listNumber.Count - 1);
-                                j--;
-                            }
+                            listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
+                        }
+                        else
+                        {
+                            j--;
                         }
                     }
 
