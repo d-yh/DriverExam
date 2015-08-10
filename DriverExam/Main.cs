@@ -178,7 +178,7 @@ namespace DriverExam
 
         private void 清除我的收藏ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Tool().ExecNonSQLQuery("delete ExamCollet where user_id = '" + Login.USERID + "'");
+            new Tool().ExecNonSQLQuery("delete ExamCollect where user_id = '" + Login.USERID + "'");
             MessageBoxEx.Show("我的收藏已经清空");
         }
 

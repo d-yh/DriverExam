@@ -127,7 +127,7 @@
             this.lbltime.BackColor = System.Drawing.Color.Transparent;
             this.lbltime.BorderColor = System.Drawing.Color.White;
             this.lbltime.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbltime.Location = new System.Drawing.Point(86, 120);
+            this.lbltime.Location = new System.Drawing.Point(80, 120);
             this.lbltime.Name = "lbltime";
             this.lbltime.Size = new System.Drawing.Size(0, 17);
             this.lbltime.TabIndex = 6;
@@ -162,9 +162,9 @@
             this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel2.Location = new System.Drawing.Point(6, 120);
             this.skinLabel2.Name = "skinLabel2";
-            this.skinLabel2.Size = new System.Drawing.Size(80, 17);
+            this.skinLabel2.Size = new System.Drawing.Size(68, 17);
             this.skinLabel2.TabIndex = 3;
-            this.skinLabel2.Text = "已使用时间：";
+            this.skinLabel2.Text = "剩余时间：";
             // 
             // skinLabel1
             // 

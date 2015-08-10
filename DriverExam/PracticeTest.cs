@@ -14,6 +14,7 @@ namespace DriverExam
     {
        
         private int totalTime = 0;
+        private TimeSpan ts = new TimeSpan(1,30, 0);
         private List<int> selectedNumber = new List<int>();
         private DateTime startTime = DateTime.Now;
         private int index = 0;
@@ -181,8 +182,11 @@ namespace DriverExam
 
         private void timerExam_Tick(object sender, EventArgs e)
         {
-            totalTime++;
-            if (totalTime == 3600)
+            string str = ts.Hours.ToString() + "时:" + ts.Minutes.ToString() + "分:" + ts.Seconds.ToString()+"秒";
+            DateTime endTime = DateTime.Now;
+            lbltime.Text = str;
+            ts = ts.Subtract(new TimeSpan(0, 0, 1));
+             if (ts.TotalSeconds < 0.0)//当倒计时完毕
             {
                 DataTable dt = getCurrentSubject();
                 this.checkBoxA.Enabled = false;
@@ -212,8 +216,7 @@ namespace DriverExam
                 lblTrue.Text = "正确答案：" + selectAnswer;
                 MessageBoxEx.Show("您的答题时间已到,系统已经强制交卷");
             }
-            DateTime endTime = DateTime.Now;
-            lbltime.Text = endTime.Subtract(this.startTime).Hours.ToString() + "时" + endTime.Subtract(this.startTime).Minutes.ToString() + "分" + endTime.Subtract(this.startTime).Seconds.ToString() + "秒";
+
            
         }
 
@@ -404,6 +407,7 @@ namespace DriverExam
                 else 
                 {
                     totalLbl[i].BackColor = Color.Red;
+                    new Tool().ExecNonSQLQuery("insert into ExamErrorSubject (user_id,subject_id)values('" + Login.USERID + "','" + dt.Rows[0]["id"].ToString() + "')"); 
                 }
                 index++;
             }
@@ -512,10 +516,19 @@ namespace DriverExam
                 //装载判断 各一题
                 for (int i = 0; i < sixSectionId.Length; i++)
                 {
-                    sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '判断题' and b.id = '"+sixSectionId[i]+"' and(a.problem is null or a.problem ='')";
+                    sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '判断题' and b.id = '"+sixSectionId[i]+"' and a.problem ='难题强化'";
                     data = new Tool().ExecuteSqlQuery(sqlString);
                     list = getRandom(data, 1);
+
                     listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
+                    for (int j = 0; j < listNumber.Count; j++)
+                    {
+                        if (listNumber.Contains(j))
+                        {
+                            listNumber.RemoveAt(listNumber.Count-1);
+                            i--;
+                        }
+                    }
                 }
 
                 //装载9道新题新规
@@ -561,14 +574,20 @@ namespace DriverExam
 
                 for (int i = 0; i < sevenSectionId.Length; i++)
                 {
-                    sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '单项选择题' and b.id = '" + sevenSectionId[i] + "' and (a.problem is null or a.problem = '')";
-                    data = new Tool().ExecuteSqlQuery(sqlString);
-                    list = getRandom(data, 2);
-
-                    for (int j = 0; j < list.Count; j++)
+                    for (int j = 0; j < 2; j++)
                     {
-
-                        listNumber.Add(Convert.ToInt16(data.Rows[list[j]]["random_number"].ToString()));
+                        sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '单项选择题' and b.id = '" + sevenSectionId[i] + "' and a.problem = '难题强化'";
+                        data = new Tool().ExecuteSqlQuery(sqlString);
+                        list = getRandom(data, 1);
+                        listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
+                        for (int k = 0; k < listNumber.Count; k++)
+                        {
+                            if (listNumber.Contains(k))
+                            {
+                                listNumber.RemoveAt(listNumber.Count - 1);
+                                j--;
+                            }
+                        }
                     }
                 }
                 #endregion
@@ -601,25 +620,24 @@ namespace DriverExam
                 //装载各章节各3题
 
                 for (int i = 0; i < eightSectionId.Length; i++)
-                {
-                    sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '多项选择题' and b.id = '" + eightSectionId[i] + "' and (a.problem is null or a.problem = '') ";
-                    data = new Tool().ExecuteSqlQuery(sqlString);
-                    list = getRandom(data, 3);
+                {                   
 
-                    for (int j = 0; j < list.Count; j++)
+                    for (int j = 0; j < 3; j++)
                     {
-                        listNumber.Add(Convert.ToInt16(data.Rows[list[j]]["random_number"].ToString()));                        
+                        sqlString = "select a.* from ExamSubject a left join ExamSection b on a.section = b.id  where a.type = '多项选择题' and b.id = '" + eightSectionId[i] + "' and a.problem = '难题强化' ";
+                        data = new Tool().ExecuteSqlQuery(sqlString);
+                        list = getRandom(data, 1);
+                        listNumber.Add(Convert.ToInt16(data.Rows[list[0]]["random_number"].ToString()));
+                        for (int k = 0; k < listNumber.Count; k++)
+                        {
+                            if (listNumber.Contains(k))
+                            {
+                                listNumber.RemoveAt(listNumber.Count - 1);
+                                j--;
+                            }
+                        }
                     }
 
-                }
-
-                
-                for (int i = 0; i < listNumber.Count; i++)
-                {
-                    if (listNumber.Contains(i))
-                    {
-                        MessageBox.Show("发现重复值");
-                    }
                 }
                 #endregion
             }
