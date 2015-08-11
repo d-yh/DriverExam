@@ -198,9 +198,10 @@ namespace DriverExam
                     cm.Parameters.Add("@answer", SqlDbType.NVarChar);
                     cm.Parameters.Add("@section", SqlDbType.NVarChar);
                     cm.Parameters.Add("@problem", SqlDbType.NVarChar);
+                    cm.Parameters.Add("@error_detail", SqlDbType.NVarChar);
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        cm.CommandText = "insert into ExamSubject(topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section,problem) values (@topic,@type,@question,@picture_name,@option_a,@option_b,@option_c,@option_d,@answer,@section,@problem)";
+                        cm.CommandText = "insert into ExamSubject(topic,type,question,picture_name,option_a,option_b,option_c,option_d,answer,section,error_detail,problem) values (@topic,@type,@question,@picture_name,@option_a,@option_b,@option_c,@option_d,@answer,@section,@error_detail,@problem)";
                        
                         cm.Parameters["@topic"].Value = dt.Rows[i]["topic"];
 
@@ -211,7 +212,6 @@ namespace DriverExam
                         cm.Parameters["@question"].Value = dt.Rows[i]["question"];
 
                         //cm.Parameters.Add("@picture", SqlDbType.Image);
-                        //cm.Parameters["@picture"].Value = null;
 
                        
                         cm.Parameters["@picture_name"].Value = dt.Rows[i]["picture_name"];
@@ -232,6 +232,8 @@ namespace DriverExam
                         cm.Parameters["@answer"].Value = dt.Rows[i]["answer"];
                   
                         cm.Parameters["@section"].Value = dt.Rows[i]["section"];
+
+                        cm.Parameters["@error_detail"].Value = dt.Rows[i]["error_detail"];
 
                         cm.Parameters["@problem"].Value = dt.Rows[i]["problem"];
 

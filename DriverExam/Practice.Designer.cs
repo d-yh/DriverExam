@@ -99,7 +99,7 @@
             this.lblError.BorderColor = System.Drawing.Color.White;
             this.lblError.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(15, 488);
+            this.lblError.Location = new System.Drawing.Point(118, 399);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 20);
             this.lblError.TabIndex = 6;
@@ -453,6 +453,7 @@
             this.skinPanel1.BackColor = System.Drawing.Color.White;
             this.skinPanel1.Controls.Add(this.skinPanel3);
             this.skinPanel1.Controls.Add(this.skinLabel2);
+            this.skinPanel1.Controls.Add(this.lblError);
             this.skinPanel1.Controls.Add(this.skinPanel2);
             this.skinPanel1.Controls.Add(this.topicContent);
             this.skinPanel1.Controls.Add(this.pic);
@@ -475,7 +476,6 @@
             this.ClientSize = new System.Drawing.Size(865, 652);
             this.Controls.Add(this.picMax);
             this.Controls.Add(this.skinLabel3);
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.checkBoxIsShowTrue);
             this.Controls.Add(this.skinPanel1);
             this.Controls.Add(this.checkBoxIsNext);
